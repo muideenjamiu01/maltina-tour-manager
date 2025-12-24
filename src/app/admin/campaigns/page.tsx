@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Plus, Search, ChevronDown, ChevronRight, Calendar, TrendingUp, Check } from 'lucide-react';
 import { AdminHeader } from '../../../components/admin/admin-header';
+import { useSidebar } from '../layout';
 import { CreateCampaignModal } from '../../../components/campaigns/CreateCampaignModal';
 import { CampaignActionsMenu } from '../../../components/campaigns/CampaignActionsMenu';
 import { CycleActionsMenu } from '../../../components/campaigns/CycleActionsMenu';
@@ -19,6 +20,9 @@ function formatDate(dateString: string): string {
 }
 
 export default function CampaignsPage() {
+  // Sidebar context for mobile menu
+  const { toggleSidebar } = useSidebar();
+  
   // Create Campaign Modal
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [createStep, setCreateStep] = useState(1);
@@ -151,19 +155,21 @@ export default function CampaignsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="flex flex-col h-full bg-white">
       <AdminHeader 
         title="Campaign Details"
         subtitle="View campaigns and their cycles, set active cycle for operations"
         screenCode="ADM-C01"
+        showFilters={false}
+        onToggleSidebar={toggleSidebar}
         actions={
           <div className="flex items-center gap-3">
             <button
               onClick={() => setShowActiveCampaignModal(true)}
-              className="px-4 py-2 bg-white border border-[#E5E7EB] rounded-lg text-[14px] text-[#2B2B2B] hover:bg-[#F9FAFB] transition-colors flex items-center gap-2"
+              className="px-3 lg:px-4 py-2 bg-white border border-[#E5E7EB] rounded-lg text-[12px] lg:text-[14px] text-[#2B2B2B] hover:bg-[#F9FAFB] transition-colors flex items-center gap-2"
             >
               <Calendar className="w-4 h-4 text-[#F5A623]" />
-              <div className="text-left">
+              <div className="text-left hidden sm:block">
                 <div className="text-[11px] text-[#9E9E9E]">Active Cycle</div>
                 <div className="text-[13px] text-[#2B2B2B]">{activeCycle?.cycleLabel || 'None'}</div>
               </div>
@@ -171,18 +177,19 @@ export default function CampaignsPage() {
             </button>
             <button 
               onClick={() => setShowCreateModal(true)}
-              className="px-4 py-2 bg-[#F5A623] text-white rounded-lg hover:bg-[#E09612] transition-colors flex items-center gap-2"
+              className="px-3 lg:px-4 py-2 bg-[#F5A623] text-white rounded-lg hover:bg-[#E09612] transition-colors flex items-center gap-2"
             >
-              <Plus className="w-5 h-5" />
-              Create Campaign
+              <Plus className="w-4 lg:w-5 h-4 lg:h-5" />
+              <span className="hidden sm:inline">Create Campaign</span>
+              <span className="sm:hidden">Create</span>
             </button>
           </div>
         }
       />
 
-      <div className="w-[1440px] mx-auto px-8 py-6">
+      <div className="flex-1 overflow-auto px-4 lg:px-8 py-6 max-w-full">
         {/* Summary Statistics */}
-        <div className="mb-6 grid grid-cols-4 gap-4">
+        <div className="mb-6 grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="bg-white border border-[#E5E7EB] rounded-lg p-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-[12px] text-[#9E9E9E]">Total Campaigns</span>
@@ -229,7 +236,7 @@ export default function CampaignsPage() {
         </div>
 
         {/* Search and Filters */}
-        <div className="mb-4 flex items-center justify-between gap-4">
+        <div className="mb-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9E9E9E]" />
             <input
@@ -274,8 +281,8 @@ export default function CampaignsPage() {
 
         {/* Table */}
         <div className="bg-white border border-[#E5E7EB] rounded-lg overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full">
+          <div className="overflow-x-auto min-w-0">
+            <table className="w-full min-w-[800px]">
               <thead className="bg-[#F9FAFB] border-b border-[#E5E7EB]">
                 <tr>
                   <th className="px-4 py-3 text-left text-[12px] text-[#2B2B2B] w-[40px]"></th>
@@ -351,7 +358,7 @@ export default function CampaignsPage() {
                             setShowAddCycleModal(true);
                           }}
                           onConfigure={() => {
-                            window.location.href = '/pipeline-builder';
+                            window.location.href = '/admin/campaigns/pipeline-builder';
                           }}
                           onEdit={() => {
                             setSelectedCampaignForEdit(campaign);

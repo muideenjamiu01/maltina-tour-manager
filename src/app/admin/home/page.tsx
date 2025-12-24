@@ -197,7 +197,7 @@ export default function AdminHomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFDF8]">
+    <div className="flex flex-col h-full bg-[#FFFDF8]">
       <AdminHeader 
         title="Campaign Overview" 
         subtitle="Real-time campaign health and decision dashboard"
@@ -223,7 +223,7 @@ export default function AdminHomePage() {
       />
 
       {/* Content */}
-      <div className="p-8 max-w-[1200px] mx-auto">
+      <div className="flex-1 overflow-auto p-8 max-w-[1200px] mx-auto w-full pb-16">
         {/* Status Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <KPICard

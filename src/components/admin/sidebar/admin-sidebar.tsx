@@ -30,8 +30,11 @@ import {
   Upload,
   FormInput,
   GitBranch,
+  X,
+  LogOut,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/contexts/auth-context';
 
 interface NavigationItem {
   name: string;
@@ -346,12 +349,29 @@ const navigationItems: NavigationItem[] = [
   },
 ];
 
-export function AdminSidebar() {
+interface AdminSidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
   const [expandedItems, setExpandedItems] = useState<string[]>([
     'Schools',
     'User Management',
   ]);
   const pathname = usePathname();
+  const { user, logout } = useAuth();
+
+  const handleLogout = async () => {
+    const confirmLogout = window.confirm('Are you sure you want to logout?');
+    if (confirmLogout) {
+      try {
+        await logout();
+      } catch (error) {
+        console.error('Logout failed:', error);
+      }
+    }
+  };
 
   const toggleExpanded = (itemName: string) => {
     setExpandedItems((prev) =>
@@ -375,17 +395,30 @@ export function AdminSidebar() {
   };
 
   return (
-    <aside className="w-[260px] h-screen bg-white border-r border-[#E5E7EB] flex-shrink-0 flex flex-col">
+    <aside className={cn(
+      "w-[260px] h-full bg-white border-r border-[#E5E7EB] flex-shrink-0 flex flex-col transition-transform duration-300 ease-in-out",
+      "lg:translate-x-0 lg:static lg:z-auto",
+      "fixed inset-y-0 left-0 z-50",
+      isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+    )}>
       {/* Header */}
       <div className="p-6 border-b border-[#E5E7EB]">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#F5A623] rounded-lg flex items-center justify-center">
-            <Home className="w-5 h-5 text-white" />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-[#F5A623] rounded-lg flex items-center justify-center">
+              <Home className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <div className="text-[#2B2B2B] font-medium">Maltina Tour</div>
+              <div className="text-xs text-[#9E9E9E]">Admin Control</div>
+            </div>
           </div>
-          <div>
-            <div className="text-[#2B2B2B] font-medium">Maltina Tour</div>
-            <div className="text-xs text-[#9E9E9E]">Admin Control</div>
-          </div>
+          <button
+            onClick={onClose}
+            className="lg:hidden p-2 hover:bg-[#F2F1EE] rounded-lg transition-colors"
+          >
+            <X className="w-5 h-5 text-[#9E9E9E]" />
+          </button>
         </div>
       </div>
 
@@ -497,17 +530,27 @@ export function AdminSidebar() {
 
       {/* Footer */}
       <div className="p-4 border-t border-[#E5E7EB]">
-        <div className="flex items-center gap-3 p-3 rounded-lg bg-[#F2F1EE]">
+        <div className="flex items-center gap-3 p-3 rounded-lg bg-[#F2F1EE] mb-3">
           <div className="w-9 h-9 bg-[#F5A623] rounded-full flex items-center justify-center">
-            <span className="text-sm font-medium text-white">TM</span>
+            <span className="text-sm font-medium text-white">
+              {user?.firstName ? user.firstName[0] + (user.lastName?.[0] || '') : 'TM'}
+            </span>
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-sm text-[#2B2B2B] truncate font-medium">
-              Tour Manager
+              {user?.firstName ? `${user.firstName} ${user.lastName || ''}`.trim() : 'Tour Manager'}
             </div>
-            <div className="text-xs text-[#9E9E9E]">Campaign 2025</div>
+            <div className="text-xs text-[#9E9E9E]">{user?.role || 'Admin'}</div>
           </div>
         </div>
+        
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center gap-3 px-3 py-2 text-[#8C1D18] hover:bg-[#FFF0F0] rounded-lg transition-colors text-sm"
+        >
+          <LogOut className="w-4 h-4" />
+          <span>Logout</span>
+        </button>
       </div>
     </aside>
   );
