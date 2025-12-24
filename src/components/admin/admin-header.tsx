@@ -7,6 +7,7 @@ interface AdminHeaderProps {
   subtitle?: string;
   showFilters?: boolean;
   screenCode?: string;
+  actions?: React.ReactNode;
 }
 
 export function AdminHeader({
@@ -14,6 +15,7 @@ export function AdminHeader({
   subtitle,
   showFilters = true,
   screenCode,
+  actions,
 }: AdminHeaderProps) {
   return (
     <div className="bg-white border-b border-[#E5E7EB]">
@@ -26,6 +28,8 @@ export function AdminHeader({
         </div>
 
         <div className="flex items-center gap-4">
+          {actions && actions}
+          
           {showFilters && (
             <>
               <select className="px-3 py-2 border border-[#E5E7EB] rounded-lg text-sm text-[#2B2B2B] bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]">

@@ -49,24 +49,29 @@ const navigationItems: NavigationItem[] = [
     icon: Home,
   },
   {
-    name: 'Campaign Management',
+    name: 'Campaign',
     icon: Calendar,
     children: [
       {
-        name: 'Campaign Years',
-        href: '/admin/campaign-management/campaign-years',
+        name: 'Campaign Details',
+        href: '/admin/campaigns',
         icon: Calendar,
       },
-      {
-        name: 'Targets & Progress',
-        href: '/admin/campaign-management/targets-progress',
-        icon: BarChart3,
-      },
-      {
-        name: 'Campaign Lock',
-        href: '/admin/campaign-management/campaign-lock',
-        icon: Lock,
-      },
+      // {
+      //   name: 'Campaign Years',
+      //   href: '/admin/campaign-management/campaign-years',
+      //   icon: Calendar,
+      // },
+      // {
+      //   name: 'Targets & Progress',
+      //   href: '/admin/campaign-management/targets-progress',
+      //   icon: BarChart3,
+      // },
+      // {
+      //   name: 'Campaign Lock',
+      //   href: '/admin/campaign-management/campaign-lock',
+      //   icon: Lock,
+      // },
     ],
   },
   {
