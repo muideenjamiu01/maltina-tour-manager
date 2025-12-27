@@ -157,6 +157,16 @@ const navigationItems: NavigationItem[] = [
         href: '/admin/user-management/facilitator-directory',
         icon: UserCheck,
       },
+       {
+        name: 'Roles & Permissions',
+        href: '/admin/user-management/roles-permissions',
+        icon: UserCheck,
+      },
+      {
+        name: 'User Account',
+        href: '/admin/user-management/user-account',
+        icon: UserCheck,
+      },
     ],
   },
   {
