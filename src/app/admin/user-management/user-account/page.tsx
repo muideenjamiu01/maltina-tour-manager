@@ -4,7 +4,7 @@ import { useState } from "react"
 import { AdminHeader } from "@/components/admin/admin-header"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Plus, Send, UserPlus } from "lucide-react"
+import { Plus, Send, UserPlus ,Shield, Mail, Search } from "lucide-react"
 
 import {
   Tabs,
@@ -56,7 +56,11 @@ export default function UserAccountPage() {
     setShowRoleDetails(false)
     setShowRoleUsers(false)
   }
-
+const tabs = [
+  { key: "roles", label: "Roles & Permissions", icon: Shield },
+  { key: "invites", label: "Invitations", icon: Mail, badge: 2 },
+  { key: "create", label: "Create Account", icon: UserPlus },
+];
   return (
     <div className="flex min-h-screen flex-col bg-[#f9fafb] text-[16px]">
       {/* ================= HEADER ================= */}
@@ -100,48 +104,62 @@ export default function UserAccountPage() {
       <CreateUserAccountModal open={openCreateUser} onClose={() => setOpenCreateUser(false)} />
 
       {/* ================= CONTENT ================= */}
-      <div className="flex-1 px-14 py-10">
-        <div className="rounded-2xl border bg-white p-10">
+     <div className="flex-1 py-10">
+  <div className="rounded-2xl border bg-white p-10">
           <Tabs defaultValue="roles" onValueChange={setActiveTab} className="space-y-10">
 
             {/* ================= TABS ================= */}
-            <TabsList className="h-14 border-b bg-transparent p-0">
-              {[
-                { key: "roles", label: "Roles & Permissions" },
-                { key: "invites", label: "Invitations", badge: 2 },
-                { key: "create", label: "Create Account" },
-              ].map((tab) => (
-                <TabsTrigger
-                  key={tab.key}
-                  value={tab.key}
-                  className={clsx(
-                    "h-14 px-8 text-lg font-semibold text-gray-500",
-                    "data-[state=active]:text-[#F5A623]"
-                  )}
-                >
-                  {tab.label}
-                  {tab.badge && (
-                    <Badge className="ml-3 bg-[#F5A623] text-white">
-                      {tab.badge}
-                    </Badge>
-                  )}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+           <div className="w-full border-b">
+  <TabsList className="h-14 bg-transparent p-0">
+  {tabs.map((tab) => {
+    const Icon = tab.icon;
+
+    return (
+      <TabsTrigger
+        key={tab.key}
+        value={tab.key}
+        className={clsx(
+          "h-14 px-8 text-lg font-semibold text-gray-500",
+          "flex items-center gap-3",
+          "data-[state=active]:text-[#F5A623]"
+        )}
+      >
+        <Icon className="h-5 w-5" />
+
+        <span>{tab.label}</span>
+
+        {tab.badge && (
+          <Badge className="ml-2 rounded-sm bg-[#F5A623] text-white">
+            {tab.badge}
+          </Badge>
+        )}
+      </TabsTrigger>
+    );
+  })}
+</TabsList>
+
+            </div>
 
             {/* ================= ROLES ================= */}
             <TabsContent value="roles" className="space-y-8">
-              <div className="flex gap-6">
-                <Input
-                  placeholder="Search roles..."
-                  className="h-12 max-w-md border border-gray-300"
-                />
-                <select className="h-12 rounded-lg border border-gray-300 px-5">
-                  <option>All Types</option>
-                  <option>System</option>
-                  <option>Custom</option>
-                </select>
-              </div>
+          <div className="flex flex-col md:flex-row md:items-center gap-4 mb-6">
+  {/* Search Input */}
+  <div className="relative w-full md:max-w-xl">
+    <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 pointer-events-none" />
+    <Input
+      placeholder="Search roles..."
+      className="h-12 w-full border border-gray-200 pl-10 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
+    />
+  </div>
+
+  {/* Type Filter */}
+  <select className="h-12 rounded-lg border border-gray-300 px-5 text-base">
+    <option>All Types</option>
+    <option>System</option>
+    <option>Custom</option>
+  </select>
+</div>
+
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {ROLES.map((role) => (
@@ -173,26 +191,33 @@ export default function UserAccountPage() {
             {/* ================= INVITES ================= */}
            <TabsContent value="invites" className="space-y-10">
   {/* Filters */}
-  <div className="flex items-center gap-6">
+ <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+  {/* Search Input */}
+  <div className="relative w-full md:max-w-xl">
+    <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 pointer-events-none" />
     <Input
       placeholder="Search invites..."
-      className="h-12 max-w-xl text-base border border-gray-200"
+      className="h-12 w-full border border-gray-200 pl-10 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
     />
-    <select className="h-12 rounded-lg border border-gray-200 px-5 text-base">
-      <option>All Status</option>
-      <option>Pending</option>
-      <option>Accepted</option>
-      <option>Expired</option>
-    </select>
   </div>
 
-  <p className="text-base text-gray-500">
-    Showing 5 invitations
+  {/* Status Filter */}
+  <select className="h-12 rounded-lg border border-gray-200 px-4 text-base ">
+    <option>All Status</option>
+    <option>Pending</option>
+    <option>Accepted</option>
+    <option>Expired</option>
+  </select>
+</div>
+
+
+  <p className="text-base text-gray-500 mb-2">
+    Showing 2 invitations
   </p>
 
   {/* Table */}
-  <div className="overflow-hidden rounded-2xl border border-gray-200">
-    <table className="w-full table-fixed text-base">
+  <div className="overflow-hidden rounded-2xl border border-gray-200 gap-2 mb-2">
+    <table className="w-full table-fixed text-base gap-2 mb-2">
       <thead className="bg-[#F9FAFB] text-gray-600">
         <tr>
           <th className="w-[28%] px-6 py-4 text-left font-semibold">
@@ -227,13 +252,13 @@ export default function UserAccountPage() {
           </td>
 
           <td>
-            <Badge className="bg-orange-100 text-orange-800">
+            <Badge className=" rounded-none bg-orange-800 text-white">
               Campaign Manager
             </Badge>
           </td>
 
           <td>
-            <Badge className="bg-orange-100 text-orange-800">
+            <Badge className=" rounded-none bg-orange-800 text-white">
               Pending
             </Badge>
           </td>
@@ -280,13 +305,13 @@ export default function UserAccountPage() {
           </td>
 
           <td>
-            <Badge className="bg-green-100 text-green-800">
+            <Badge className="rounded-none bg-green-100 text-green-800">
               RECEE Officer
             </Badge>
           </td>
 
           <td>
-            <Badge className="bg-green-100 text-green-800">
+            <Badge className="rounded-none bg-green-100 text-green-800">
               Accepted
             </Badge>
           </td>
