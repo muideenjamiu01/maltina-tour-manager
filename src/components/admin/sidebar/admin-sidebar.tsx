@@ -123,39 +123,39 @@ const navigationItems: NavigationItem[] = [
     ],
   },
   {
-    name: 'Scheduling & Booking',
+    name: 'Operations',
     icon: CalendarDays,
     children: [
       {
-        name: 'Booking Control',
-        href: '/admin/scheduling-booking/booking-control',
+        name: 'Nomination Review',
+        href: '/admin/operations/nomination-review',
         icon: BookOpen,
       },
       {
-        name: 'Calendar View',
-        href: '/admin/scheduling-booking/calendar-view',
+        name: 'Interest & Criteria',
+        href: '/admin/operations/interest-criteria',
         icon: CalendarDays,
       },
       {
-        name: 'Slot Management',
-        href: '/admin/scheduling-booking/slot-management',
+        name: 'RECEE Queue',
+        href: '/admin/operations/recee-queue',
         icon: Clock,
+      },
+      {
+        name: 'RECEE Approvals',
+        href: '/admin/operations/recee-approvals',
+        icon: UserCheck,
       },
     ],
   },
   {
-    name: 'User Management',
-    icon: Users,
+    name: 'Admin',
+    icon: Cog,
     children: [
       {
         name: 'User Directory',
         href: '/admin/user-management/user-directory',
         icon: Users,
-      },
-      {
-        name: 'Facilitator Directory',
-        href: '/admin/user-management/facilitator-directory',
-        icon: UserCheck,
       },
        {
         name: 'Roles & Permissions',
@@ -165,6 +165,22 @@ const navigationItems: NavigationItem[] = [
       {
         name: 'User Account',
         href: '/admin/user-management/user-account',
+        icon: UserCheck,
+      },
+      {
+        name: 'Audit Log',
+        href: '/admin/user-management/audit-log',
+        icon: UserCheck,
+      },
+      
+      {
+        name: 'Security Events',
+        href: '/admin/user-management/security-events',
+        icon: UserCheck,
+      },
+      {
+        name: 'Data Changes',
+        href: '/admin/user-management/data-changes',
         icon: UserCheck,
       },
     ],
@@ -217,24 +233,53 @@ const navigationItems: NavigationItem[] = [
     ],
   },
   {
-    name: 'Tour Day Control',
+    name: 'Tour',
     icon: Radio,
-    badge: 'LIVE',
-    badgeVariant: 'live',
     children: [
       {
-        name: 'Today Control Room',
-        href: '/admin/tour-day-control/control-room',
+        name: 'Assign Facilitator',
+        href: '/admin/tour/assign-facilitator',
         icon: Radio,
       },
       {
-        name: 'Submission Completeness',
-        href: '/admin/tour-day-control/submission-completeness',
+        name: 'Cluster Management',
+        href: '/admin/tour/cluster-management',
         icon: FileText,
       },
+      
       {
-        name: 'Risk Radar',
-        href: '/admin/tour-day-control/risk-radar',
+        name: 'Booking Tracker',
+        href: '/admin/tour/book-tracker',
+        icon: BarChart3,
+      },
+      {
+        name: 'Today Control Room',
+        href: '/admin/tour/today-control-room',
+        icon: BarChart3,
+      },
+       {
+        name: 'Tour Summary',
+        href: '/admin/tour/tour-summary',
+        icon: BarChart3,
+      },
+      {
+        name: 'Tour Facilitators',
+        href: '/admin/tour/tour-facilitators',
+        icon: BarChart3,
+      },
+        {
+        name: 'Impact Survey',
+        href: '/admin/tour/impact-survey',
+        icon: BarChart3,
+      },
+       {
+        name: 'Teacher Survey',
+        href: '/admin/tour/teacher-survey',
+        icon: BarChart3,
+      },
+       {
+        name: 'Tour Analyst',
+        href: '/admin/tour/tour-analyst',
         icon: BarChart3,
       },
     ],
@@ -256,23 +301,45 @@ const navigationItems: NavigationItem[] = [
     ],
   },
   {
-    name: 'Reports & Analytics',
+    name: 'Reports',
     icon: BarChart3,
     children: [
       {
-        name: 'KPI Overview',
-        href: '/admin/reports-analytics/kpi-overview',
+        name: 'Rejections & Exceptions',
+        href: '/admin/reports-analytics/rejections-exceptions',
+        icon: BarChart3,
+      },
+      
+      {
+        name: 'Geo Coverage',
+        href: '/admin/reports-analytics/geo-coverage',
         icon: BarChart3,
       },
       {
-        name: 'Impact Evidence',
-        href: '/admin/reports-analytics/impact-evidence',
-        icon: BarChart3,
-      },
-      {
-        name: 'Exports',
-        href: '/admin/reports-analytics/exports',
+        name: 'Weekly Executive',
+        href: '/admin/reports-analytics/weekly-executive',
         icon: FileText,
+      },
+       {
+        name: 'SLA & Stuck Schools',
+        href: '/admin/reports-analytics/sla-stuck-schools',
+        badge: 4,
+        icon: BarChart3,
+      },
+      {
+        name: 'School Case File',
+        href: '/admin/reports-analytics/school-case-file',
+        icon: FileText,
+      },
+       {
+        name: 'Tour Ops Dashboard',
+        href: '/admin/reports-analytics/tour-ops-dashboard',
+        icon: FileText,
+      },
+       {
+        name: 'Pipeline Funnel',
+        href: '/admin/reports-analytics/pipeline-funnel',
+        icon: UserCheck,
       },
     ],
   },
@@ -302,53 +369,8 @@ const navigationItems: NavigationItem[] = [
       },
     ],
   },
-  {
-    name: 'Logs & Audit',
-    icon: FileSearch,
-    children: [
-      {
-        name: 'Audit Log',
-        href: '/admin/logs-audit/audit-log',
-        icon: FileText,
-      },
-      {
-        name: 'Security Events',
-        href: '/admin/logs-audit/security-events',
-        icon: FileText,
-      },
-    ],
-  },
-  {
-    name: 'Settings',
-    icon: Cog,
-    children: [
-      {
-        name: 'Roles & Permissions',
-        href: '/admin/settings/roles-permissions',
-        icon: SettingsIcon,
-      },
-      {
-        name: 'Token Policies',
-        href: '/admin/settings/token-policies',
-        icon: SettingsIcon,
-      },
-      {
-        name: 'Notifications',
-        href: '/admin/settings/notifications',
-        icon: SettingsIcon,
-      },
-      {
-        name: 'SLA Thresholds',
-        href: '/admin/settings/sla-thresholds',
-        icon: SettingsIcon,
-      },
-      {
-        name: 'Data Quality Rules',
-        href: '/admin/settings/data-quality-rules',
-        icon: SettingsIcon,
-      },
-    ],
-  },
+  
+  
 ];
 
 export function AdminSidebar() {
