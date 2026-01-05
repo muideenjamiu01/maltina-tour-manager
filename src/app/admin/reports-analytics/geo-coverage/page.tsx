@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { MapPin, TrendingUp, Filter, CheckCircle, AlertTriangle, X as XIcon } from 'lucide-react';
 import { Fragment } from 'react';
-import { GeoDataRow, Toast, CellProps } from '../../../../../types/geo-coverage.types';
+import { GeoDataRow, Toast, CellProps } from '../../../../types/geo-coverage.types';
 
 function DataCell({ value, onClick, highlight }: CellProps) {
   const highlightStyles = {

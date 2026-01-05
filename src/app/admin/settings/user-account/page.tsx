@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { AdminHeader } from '@/components/admin/admin-header';
-import { CreateRoleModal } from '@/components/admin/modals/create-role-modal';
+//import { CreateRoleModal } from '@/components/admin/modals/create-role-modal';
 
 export default function UserAccountManagementPage() {
   const [activeTab, setActiveTab] = useState<'roles' | 'invites' | 'create'>('roles');
@@ -154,7 +154,7 @@ export default function UserAccountManagementPage() {
         )}
       </div>
 
-      <CreateRoleModal open={showCreateRoleModal} onClose={() => setShowCreateRoleModal(false)} />
+      
     </div>
   );
 }

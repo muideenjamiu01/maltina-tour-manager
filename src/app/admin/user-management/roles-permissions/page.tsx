@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react';
-import { Plus, Search, Shield, Users, Edit, Check, X, ChevronRight, Trash2, Copy, Smartphone, Eye, EyeOff, Lock, Unlock, AlertCircle, Loader } from 'lucide-react';
+import { Plus, Search, Shield, Users, Edit, Check, X, ChevronRight, Trash2, Copy, Smartphone, Eye, EyeOff, Lock, Unlock, AlertCircle, Loader, BarChart3, Wrench, BookOpen } from 'lucide-react';
 import { AdminHeader } from '@/components/admin/admin-header'
 import { Toast, Role, PermissionKey, PERMISSION_CATALOG } from '../../../../types/roles-permissions.types';
 
@@ -45,7 +45,7 @@ export default function RolesPermissions() {
       type: 'system',
       color: '#F5A623',
       pwaName: 'School Tour PWA',
-     
+      icon: <Shield className="w-5 h-5" />,
       canCreateAccounts: false,
       summary: 'Control tower for one school session',
     },
@@ -57,7 +57,7 @@ export default function RolesPermissions() {
       type: 'system',
       color: '#2F6B3C',
       pwaName: 'School Tour PWA',
-  
+      icon: <BarChart3 className="w-5 h-5" />,
       canCreateAccounts: false,
       summary: 'Survey runner, waits for supervisor activation',
     },
@@ -69,7 +69,7 @@ export default function RolesPermissions() {
       type: 'system',
       color: '#8C1D18',
       pwaName: 'RECEE PWA',
-    
+      icon: <Wrench className="w-5 h-5" />,
       canCreateAccounts: false,
       summary: 'Inspections only, separate lane',
     },
@@ -81,7 +81,7 @@ export default function RolesPermissions() {
       type: 'system',
       color: '#D4A017',
       pwaName: 'Facilitator PWA',
-     
+      icon: <Users className="w-5 h-5" />,
       canCreateAccounts: false,
       summary: 'View assigned schools + messaging',
     },
@@ -93,7 +93,7 @@ export default function RolesPermissions() {
       type: 'system',
       color: '#2F6B3C',
       pwaName: 'Judge PWA',
-  
+      icon: <BookOpen className="w-5 h-5" />,
       canCreateAccounts: false,
       summary: 'Designs only, no tour access',
     },

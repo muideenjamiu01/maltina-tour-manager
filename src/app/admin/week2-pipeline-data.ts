@@ -18,6 +18,8 @@ export type SchoolStatus =
   | 'Ready for Tour'
   | 'Cancelled';
 
+
+  
 // LOCKED REJECTION REASONS (ENUMS)
 export const REJECTION_REASONS = {
   'Rejected – Nomination': [
@@ -43,43 +45,94 @@ export const REJECTION_REASONS = {
 
 // SCHOOL DATA INTERFACE
 export interface School {
-  id: string;
-  name: string;
-  state: string;
-  lga: string;
-  type: 'Public' | 'Private';
-  ownership: 'Government' | 'Private' | 'Mission';
-  capacity: number;
-  status: SchoolStatus;
-  
-  // Metadata
-  nominatedBy?: string;
-  nominatedDate?: string;
-  lastUpdate: string;
-  
-  // Decision tracking
-  decisions: Decision[];
-  
-  // Cluster assignment
-  clusterId?: string;
-  clusterName?: string;
-  
-  // Booking data
-  bookingDate?: string;
-  bookingSlot?: string;
-  bookingConfirmedDate?: string;
-  
-  // RECEE data
-  receeOfficer?: string;
-  receeScheduledDate?: string;
-  receeCompletedDate?: string;
-  
-  // Criteria validation
-  criteriaResults?: CriteriaResult[];
-  
-  // Communication log
-  emailEvents: EmailEvent[];
+  /* =====================
+     Core Identity
+  ====================== */
+  id: string
+  name: string
+  state: string
+  lga: string
+  address?: string
+  phone?: string
+
+  /* =====================
+     Classification
+  ====================== */
+  type: 'Public' | 'Private'
+  ownership: 'Government' | 'Private' | 'Mission'
+  status: SchoolStatus
+
+  /* =====================
+     Capacity & Population
+  ====================== */
+  capacity: number
+  studentCount?: number
+
+  /* =====================
+     Nomination
+  ====================== */
+  nominationSource?: 'Web' | 'Field' | 'Partner' | 'Internal'
+  nominatedBy?: string
+  nominatorEmail?: string
+  nominatedDate?: string
+
+
+  /* =====================
+     Decisions
+  ====================== */
+  decisions: Decision[]
+
+    /* =====================
+      Timeline & Tracking
+    ====================== */
+    timeline?: {
+     date: string;
+     time?: string;
+     status?: string;
+     actor?: string;
+     action?: string;
+     reason?: string;
+     note?: string;
+    }[];
+
+    daysInCurrentStage?: number;
+
+  /* =====================
+     Cluster Assignment
+  ====================== */
+  clusterId?: string
+  clusterName?: string
+
+  /* =====================
+     Booking
+  ====================== */
+  bookingDate?: string
+  bookingSlot?: string
+  bookingConfirmedDate?: string
+
+  /* =====================
+     RECCE
+  ====================== */
+  receeOfficer?: string
+  receeScheduledDate?: string
+  receeCompletedDate?: string
+
+  /* =====================
+     Criteria Validation
+  ====================== */
+  criteriaResults?: CriteriaResult[]
+
+  /* =====================
+     Communication
+  ====================== */
+  emailEvents?: EmailEvent[]
+
+  /* =====================
+     System Metadata
+  ====================== */
+  lastUpdate: string
 }
+
 
 export interface Decision {
   id: string;

@@ -19,6 +19,7 @@ interface CriteriaCheck {
   value?: string;
   threshold?: string;
 }
+type SystemRecommendation = 'approve' | 'reject';
 
 export default function SchoolCaseFile() {
   const router = useRouter();
@@ -87,7 +88,7 @@ export default function SchoolCaseFile() {
     { date: '20 Dec 2025', type: 'SMS', subject: 'Nomination notification', status: 'Delivered', recipient: 'Principal' }
   ];
 
-  const systemRecommendation: 'approve' | 'reject' = 'reject'; // 'approve' or 'reject'
+  const systemRecommendation: SystemRecommendation = 'reject'; // 'approve' or 'reject'
 
   const tabs = [
     { id: 'timeline', label: 'Timeline', icon: Clock },
@@ -228,11 +229,11 @@ export default function SchoolCaseFile() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-[#2B2B2B]">Criteria Validation Results</h3>
-                  <div className={`px-3 py-1 rounded-full text-xs ${
+                 {/* <div className={`px-3 py-1 rounded-full text-xs ${
                     systemRecommendation === 'approve' ? 'bg-[#2F6B3C] text-white' : 'bg-[#8C1D18] text-white'
                   }`}>
                     System: {systemRecommendation === 'approve' ? 'Approve' : 'Reject'}
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="space-y-3">

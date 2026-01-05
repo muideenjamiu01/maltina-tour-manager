@@ -344,11 +344,7 @@ const navigationItems: NavigationItem[] = [
         href: '/admin/reports-analytics/tour-ops-dashboard',
         icon: FileText,
       },
-       {
-        name: 'Pipeline Funnel',
-        href: '/admin/reports-analytics/pipeline-funnel',
-        icon: UserCheck,
-      },
+      
     ],
   },
   {
