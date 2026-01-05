@@ -634,18 +634,14 @@ export default function UserDirectory() {
         availableRoles={roles.map(r => ({ id: r.id, name: r.name, color: r.color }))} 
         onCreateUser={(userData) => {
           console.log('Creating user:', userData);
-          toast({
-            title: 'User created',
+          toast.success('User created', {
             description: `User account created: ${userData.email}`,
-            variant: 'default',
           })
         }}
         onBulkUpload={(file) => {
           console.log('Bulk uploading:', file.name);
-          toast({
-            title: 'Bulk upload',
+          toast.success('Bulk upload', {
             description: `Processing bulk upload: ${file.name}`,
-            variant: 'default',
           })
         }}
       />

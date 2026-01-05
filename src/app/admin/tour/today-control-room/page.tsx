@@ -908,7 +908,7 @@ export default function TodayControlRoom() {
                     ].map((link, idx) => (
                       <button
                         key={idx}
-                        onClick={() => setScreen(link.screen)}
+                        
                         className="w-full flex items-center justify-between px-3 py-2 border border-[#E5E7EB] rounded-lg hover:border-[#F5A623] transition-colors text-left"
                       >
                         <span className="text-[12px] text-[#2B2B2B]">{link.label}</span>

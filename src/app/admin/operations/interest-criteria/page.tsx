@@ -47,7 +47,7 @@ export default function InterestCriteria() {
       },
       {
         name: 'School Type',
-        status: schoolType === 'Secondary' ? 'pass' : 'fail',
+        status: studentCount >= 500 && studentCount <= 1000 ? 'pass' : 'fail',
         value: schoolType,
         requirement: 'Secondary School only'
       },

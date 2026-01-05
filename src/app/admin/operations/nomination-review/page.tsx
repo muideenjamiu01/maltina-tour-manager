@@ -295,12 +295,13 @@ export default function NominationReview() {
                         <div className="text-[14px] leading-[20px] text-[#2B2B2B]">
                           {school.daysInCurrentStage} days
                         </div>
-                        {school.daysInCurrentStage > 7 && (
-                          <div className="text-[10px] text-[#D4A017] flex items-center gap-1 mt-1">
-                            <AlertTriangle className="w-3 h-3" />
-                            overdue
-                          </div>
-                        )}
+                      {school.daysInCurrentStage != null && school.daysInCurrentStage > 7 && (
+  <div className="text-[10px] text-[#D4A017] flex items-center gap-1 mt-1">
+    <AlertTriangle className="w-3 h-3" />
+    overdue
+  </div>
+)}
+
                       </td>
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-2">
@@ -330,7 +331,7 @@ export default function NominationReview() {
                             <X className="w-4 h-4" />
                           </button>
                           <button
-                            onClick={() => setScreen('OPS-SCH06 School Case File')}
+                           
                             className="p-1 hover:bg-[#F2F1EE] rounded transition-colors"
                             title="More actions"
                           >

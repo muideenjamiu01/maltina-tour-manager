@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface Toast {
   id: string;
   message: string;
@@ -16,6 +18,7 @@ export interface PermissionCategory {
 }
 
 export interface Role {
+  icon: ReactNode;
   id: string;
   name: string;
   description: string;

@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import { XCircle, TrendingDown, Filter, Download, CheckCircle, AlertTriangle, X as XIcon } from 'lucide-react';
-import { RejectionData, Toast, RejectionByStage, RejectionByReason, TrendData, TopRejectedLGA } from '../../../../../types/rejections-exceptions.types';
+import { RejectionData, Toast, RejectionByStage, RejectionByReason, TrendData, TopRejectedLGA } from '../../../../types/rejections-exceptions.types';
 
 export default function  RejectionsExceptions() {
   const [filterStage, setFilterStage] = useState('all');
