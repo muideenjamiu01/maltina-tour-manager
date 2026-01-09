@@ -146,6 +146,33 @@ const navigationItems: NavigationItem[] = [
         href: '/admin/operations/recee-approvals',
         icon: UserCheck,
       },
+      {
+        name: 'Cluster Management',
+        href: '/admin/operations/cluster-management',
+        icon: UserCheck,
+      },
+      {
+        name: 'Booking Setup',
+        href: '/admin/operations/booking-setup',
+        icon: UserCheck,
+      },
+
+      {
+        name: 'Booking Links',
+        href: '/admin/operations/booking-links',
+        icon: UserCheck,
+      },
+      {
+        name: 'Booking Management',
+        href: '/admin/operations/booking-management',
+        icon: UserCheck,
+      },
+       {
+        name: 'Ready for Tour',
+        href: '/admin/operations/ready-for-tour',
+        icon: UserCheck,
+      },
+      
     ],
   },
   {
@@ -204,11 +231,13 @@ const navigationItems: NavigationItem[] = [
         href: '/admin/communication/sms-templates',
         icon: MessageSquare,
       },
+      
       {
         name: 'SMS Sent',
         href: '/admin/communication/sms-sent',
         icon: MessageSquare,
       },
+     
     ],
   },
   {
@@ -344,25 +373,17 @@ const navigationItems: NavigationItem[] = [
     icon: Trophy,
     children: [
       {
-        name: 'Competition Setup',
-        href: '/admin/competition/setup',
+        name: 'Competition Manager',
+        href: '/admin/competition/competition-manager',
         icon: SettingsIcon,
       },
       {
-        name: 'Judging Ops',
-        href: '/admin/competition/judging-ops',
+        name: 'Admin Dashboard',
+        href: '/admin/competition/admin-dashboard',
         icon: FileText,
       },
-      {
-        name: 'Finalists & Voting',
-        href: '/admin/competition/finalists-voting',
-        icon: Trophy,
-      },
-      {
-        name: 'Results',
-        href: '/admin/competition/results',
-        icon: Trophy,
-      },
+   
+    
     ],
   },
   
