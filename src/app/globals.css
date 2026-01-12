@@ -126,8 +126,8 @@
   --color-amber: #D4A017;
   --color-wine-red: #8C1D18;
 
-  --font-sans: var(--font-lilita-one), ui-sans-serif, system-ui, sans-serif;
-  --font-poppins: var(--font-poppins-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-poppins-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-lilita: var(--font-lilita-one), ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 

@@ -15,7 +15,7 @@ const page = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5 }}
-          className='text-[45px] absolute top-[15%] left-[5%] text-black'
+          className='text-[45px] font-lilita absolute top-[15%] left-[5%] text-black'
         >
           The Maltina Nourishment Tour:
         </motion.h4>
@@ -23,7 +23,7 @@ const page = () => {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.0 }}
-          className='text-[25px] mt-2 absolute top-[22%] left-[5%] text-black'
+          className='text-[25px] font-lilita mt-2 absolute top-[22%] left-[5%] text-black'
         >
           Inspiring Future Scientists Across Nigeria
         </motion.h4>
@@ -31,7 +31,7 @@ const page = () => {
       <section className='relative z-1 h-[1500px] bg-[#ff9e16] -mt-[480px]'>
         <Image className='w-full object-fit h-[800px] md:h-[1500px] absolute top-0 left-0' src={landingPageImage} alt="Hero Image" />
         <section className='p-8 absolute top-[38%] left-0 w-full'>
-          <h2 className='w-full mx-auto text-[60px] font-bold text-center text-white'>
+          <h2 className='w-full font-lilita mx-auto text-[60px] font-bold text-center text-white'>
             Join The Maltina Nourishment Tour
           </h2>
           <p className='w-full mx-auto font-poppins text-xl font-bold text-center'>Together, we’re nourishing futures across Nigeria.</p>
