@@ -1,18 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import Logo from "@/assets/images/logo.png";
+import {
+    Sheet,
+    SheetContent,
+    SheetHeader,
+    SheetTrigger,
+    SheetClose,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
     const links = [
         { name: "Track the Tour", href: "/track" },
         { name: "Lunch Box Challenge", href: "/challenge" },
@@ -23,78 +26,78 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="w-full bg-white font-poppins sticky top-0 z-50 transition-all duration-300">
-            {/* Optional Top Border if part of design, removing for now to keep clean unless requested */}
+        <nav className="w-full bg-[#F5A623] sticky top-0 z-50 border-b-4 border-[#E89515]">
+            <div className="max-w-7xl mx-auto px-4 xl:px-8">
+                <div className="flex justify-between items-center h-20 md:h-24 lg:justify-start">
+                    {/* Mobile Menu - Sheet (Left side) */}
+                    <Sheet>
+                        <SheetTrigger asChild className="lg:hidden">
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                className="text-white hover:bg-[#E89515] hover:text-white"
+                            >
+                                <Menu size={28} strokeWidth={2.5} />
+                                <span className="sr-only">Toggle menu</span>
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent side="left" className="w-[300px] sm:w-[350px] bg-white p-0">
+                            <SheetHeader className="p-6 pb-4 border-b">
+                                <Image
+                                    src={Logo}
+                                    alt="Maltina Nourishment Tour"
+                                    width={80}
+                                    height={80}
+                                    className="h-16 w-auto object-contain mx-auto"
+                                />
+                            </SheetHeader>
+                            <nav className="flex flex-col py-4">
+                                {links.map((link) => (
+                                    <SheetClose asChild key={link.name}>
+                                        <Link
+                                            href={link.href}
+                                            className={cn(
+                                                "px-6 py-4 text-[#666666] hover:text-black hover:bg-gray-50",
+                                                "text-base font-normal transition-colors border-b border-gray-100 last:border-0"
+                                            )}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    </SheetClose>
+                                ))}
+                            </nav>
+                        </SheetContent>
+                    </Sheet>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-24">
-                    {/* Logo Section */}
-                    <div className="flex-shrink-0 flex items-center">
-                        <Link href="/" className="relative block">
-                            <Image
-                                src={Logo}
-                                alt="Maltina Nourishment Tour"
-                                width={174}
-                                height={246}
-                                className="md:h-30 h-20 w-auto object-fit py-2"
-                                priority
-                            />
-
-                        </Link>
-                    </div>
+                    {/* Logo Section - Center on mobile, left on desktop */}
+                    <Link href="/" className="absolute left-1/2 -translate-x-1/2 lg:static lg:transform-none lg:mr-auto">
+                        <Image
+                            src={Logo}
+                            alt="Maltina Nourishment Tour"
+                            width={100}
+                            height={100}
+                            className="h-16 md:h-20 w-auto object-contain"
+                            priority
+                        />
+                    </Link>
+                    
+                    {/* Spacer for mobile to balance layout */}
+                    <div className="w-10 lg:hidden"></div>
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <div className="hidden lg:flex items-center gap-8">
                         {links.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="text-[#666666] hover:text-black font-normal hover:font-medium transition-all text-sm tracking-tight"
+                                className="text-white font-medium hover:text-gray-100 transition-colors text-sm xl:text-base whitespace-nowrap"
                             >
                                 {link.name}
                             </Link>
                         ))}
                     </div>
-
-                    {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center">
-                        <button
-                            onClick={toggleMenu}
-                            className="text-gray-700 hover:text-black focus:outline-none p-2"
-                            aria-label="Toggle menu"
-                        >
-                            {isOpen ? <X size={28} /> : <Menu size={28} />}
-                        </button>
-                    </div>
                 </div>
             </div>
-
-            {/* Mobile Menu Dropdown */}
-            <div
-                className={`md:hidden absolute top-full left-0 w-full bg-white shadow-lg transition-all duration-300 ease-in-out origin-top z-40 ${isOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 h-0"
-                    }`}
-            >
-                <div className="px-4 py-6 space-y-4 flex flex-col items-center bg-white border-t">
-                    {links.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className="block w-full text-center px-4 py-3 rounded-lg text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
-                </div>
-            </div>
-
-            {/* Overlay for mobile menu */}
-            {isOpen && (
-                <div
-                    className="fixed inset-0 bg-black/20 z-30 md:hidden top-[96px]" // top-[height of navbar]
-                    onClick={() => setIsOpen(false)}
-                />
-            )}
         </nav>
     );
 };
