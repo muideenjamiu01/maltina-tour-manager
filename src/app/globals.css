@@ -201,12 +201,4 @@ html {
   .text-balance {
     text-wrap: balance;
   }
-
-  .font-sans {
-    font-family: var(--font-sans);
-  }
-
-  .font-poppins {
-    font-family: var(--font-poppins);
-  }
 }

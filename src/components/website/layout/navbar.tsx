@@ -1,13 +1,27 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import Logo from "@/assets/images/logo.png";
 
-const Navbar = () => {
+const Navbar: React.FC<{ withLogo?: boolean, transparent?: boolean }> = ({ withLogo = true, transparent = false }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 200) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -23,13 +37,13 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="w-full bg-white font-poppins sticky top-0 z-50 transition-all duration-300">
+        <nav className={`w-full font-poppins sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : (transparent ? "bg-transparent" : "bg-white")}`}>
             {/* Optional Top Border if part of design, removing for now to keep clean unless requested */}
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-24">
+                <div className={`flex ${withLogo ? "justify-between" : "justify-end"} items-center h-24`}>
                     {/* Logo Section */}
-                    <div className="flex-shrink-0 flex items-center">
+                    {withLogo && <div className="flex-shrink-0 flex items-center">
                         <Link href="/" className="relative block">
                             <Image
                                 src={Logo}
@@ -42,6 +56,7 @@ const Navbar = () => {
 
                         </Link>
                     </div>
+                    }
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
@@ -49,7 +64,7 @@ const Navbar = () => {
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="text-[#666666] hover:text-black font-normal hover:font-medium transition-all text-sm tracking-tight"
+                                className="text-[#707070] hover:text-black font-normal hover:font-medium transition-all text-sm tracking-tight"
                             >
                                 {link.name}
                             </Link>
