@@ -26,15 +26,20 @@ export default function Step1AgeVerification({ onNext, defaultValues }: Step1Pro
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div 
+      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/images/websites/challenge/step-one.png)' }}
+    >
       {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center px-4 py-12">
+      <div className="flex-1 flex items-center justify-center px-4 py-16 mt-12 md:mt-24">
         <div className="w-full max-w-2xl text-center space-y-8">
-          {/* NB Logo placeholder */}
+          {/* NB Logo */}
           <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-2xl font-bold text-[#F5A623]">NB</span>
-            </div>
+            <img 
+              src="/images/websites/challenge/nb.png" 
+              alt="Nigerian Breweries" 
+              className="w-20 h-20 md:w-24 md:h-24 object-contain"
+            />
           </div>
 
           {/* Heading */}
@@ -56,7 +61,7 @@ export default function Step1AgeVerification({ onNext, defaultValues }: Step1Pro
                   {...register('day')}
                   placeholder="DD"
                   maxLength={2}
-                  className="h-14 text-center text-lg bg-white border-0 shadow-md"
+                  className="h-14 text-center text-lg bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]"
                 />
                 {errors.day && (
                   <p className="text-sm text-red-600 font-medium">{errors.day.message}</p>
@@ -67,7 +72,7 @@ export default function Step1AgeVerification({ onNext, defaultValues }: Step1Pro
                   {...register('month')}
                   placeholder="MM"
                   maxLength={2}
-                  className="h-14 text-center text-lg bg-white border-0 shadow-md"
+                  className="h-14 text-center text-lg bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]"
                 />
                 {errors.month && (
                   <p className="text-sm text-red-600 font-medium">{errors.month.message}</p>
@@ -78,7 +83,7 @@ export default function Step1AgeVerification({ onNext, defaultValues }: Step1Pro
                   {...register('year')}
                   placeholder="YYYY"
                   maxLength={4}
-                  className="h-14 text-center text-lg bg-white border-0 shadow-md"
+                  className="h-14 text-center text-lg bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]"
                 />
                 {errors.year && (
                   <p className="text-sm text-red-600 font-medium">{errors.year.message}</p>
@@ -88,17 +93,17 @@ export default function Step1AgeVerification({ onNext, defaultValues }: Step1Pro
 
             <Button
               type="submit"
-              className="w-full max-w-xl mx-auto h-14 text-lg font-bold bg-white text-gray-900 hover:bg-gray-100 shadow-md"
+              className="w-full max-w-xl mx-auto h-14 text-lg font-semibold bg-white text-gray-900 hover:bg-gray-100 shadow-md"
             >
               CONTINUE
             </Button>
 
-            <div className="text-sm text-gray-800 max-w-xl mx-auto space-y-2">
+            <div className="text-sm text-left text-white max-w-xl mx-auto space-y-4">
               <p>
                 By continuing, you confirm you are 18 or older and you consent to submit a
                 child's artwork for this competition, including permission for campaign use.
               </p>
-              <div className="flex justify-center gap-4 text-xs underline">
+              <div className="flex justify-start gap-4 text-xs underline">
                 <a href="/terms" className="hover:text-white">Terms of Use</a>
                 <a href="/privacy" className="hover:text-white">Privacy Policy</a>
                 <a href="/competition-rules" className="hover:text-white">Competition Rules</a>

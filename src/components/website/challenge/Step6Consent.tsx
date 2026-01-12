@@ -33,11 +33,14 @@ export default function Step6Consent({ onNext, onBack, defaultValues }: Step6Pro
   const watchAll = watch();
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-4xl space-y-8">
+    <div 
+      className="min-h-screen flex items-center justify-center px-4 py-12 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/images/websites/challenge/step-6.png)' }}
+    >
+      <div className="w-full max-w-4xl space-y-8 mt-12 md:mt-24">
         {/* Heading */}
         <div className="text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+          <h1 className="font-lilita text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
             Consent Checklist
           </h1>
         </div>
@@ -53,7 +56,7 @@ export default function Step6Consent({ onNext, onBack, defaultValues }: Step6Pro
                 onCheckedChange={(checked) => 
                   setValue('isParentGuardian', checked as boolean, { shouldValidate: true })
                 }
-                className="mt-1 h-8 w-8 border-2 border-white data-[state=checked]:bg-white data-[state=checked]:text-[#F5A623]"
+                className="mt-1 h-8 w-8 border-2 border-white data-[state=checked]:bg-white data-[state=checked]:text-[#F5A623] focus:ring-2 focus:ring-[#F66F39]"
               />
               <Label
                 htmlFor="isParentGuardian"
@@ -74,7 +77,7 @@ export default function Step6Consent({ onNext, onBack, defaultValues }: Step6Pro
                 onCheckedChange={(checked) => 
                   setValue('givePermission', checked as boolean, { shouldValidate: true })
                 }
-                className="mt-1 h-8 w-8 border-2 border-white data-[state=checked]:bg-white data-[state=checked]:text-[#F5A623]"
+                className="mt-1 h-8 w-8 border-2 border-white data-[state=checked]:bg-white data-[state=checked]:text-[#F5A623] focus:ring-2 focus:ring-[#F66F39]"
               />
               <Label
                 htmlFor="givePermission"
@@ -95,7 +98,7 @@ export default function Step6Consent({ onNext, onBack, defaultValues }: Step6Pro
                 onCheckedChange={(checked) => 
                   setValue('confirmOriginal', checked as boolean, { shouldValidate: true })
                 }
-                className="mt-1 h-8 w-8 border-2 border-white data-[state=checked]:bg-white data-[state=checked]:text-[#F5A623]"
+                className="mt-1 h-8 w-8 border-2 border-white data-[state=checked]:bg-white data-[state=checked]:text-[#F5A623] focus:ring-2 focus:ring-[#F66F39]"
               />
               <Label
                 htmlFor="confirmOriginal"

@@ -14,12 +14,15 @@ interface Step5Props {
 
 export default function Step5ReviewSubmit({ onNext, onBack, onEdit, formData }: Step5Props) {
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex-1 px-4 py-12">
+    <div 
+      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/images/websites/challenge/step-5.png)' }}
+    >
+      <div className="flex-1 px-4 py-12 mt-12 md:mt-24">
         <div className="w-full max-w-3xl mx-auto space-y-8">
           {/* Heading */}
           <div className="text-center space-y-2">
-            <h1 className="text-4xl md:text-5xl font-black text-white leading-tight">
+            <h1 className="font-lilita text-4xl md:text-5xl font-black text-white leading-tight">
               Review and Submit
             </h1>
             <p className="text-sm text-gray-800">

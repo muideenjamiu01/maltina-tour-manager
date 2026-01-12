@@ -34,19 +34,22 @@ export default function Step2ParentDetails({ onNext, onBack, defaultValues }: St
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex-1 flex items-center justify-center px-4 py-12">
+    <div 
+      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/images/websites/challenge/step-two.png)' }}
+    >
+      <div className="flex-1 flex items-center justify-center px-4 py-12 mt-12 md:mt-24">
         <div className="w-full max-w-3xl space-y-8">
           {/* Heading */}
           <div className="text-center space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+            <h1 className="font-lilita text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
               Submit a Lunch Bag Design
             </h1>
             <p className="text-xl font-semibold text-gray-900">
               Parent or guardian, please enter your details first.
             </p>
             <p className="text-sm text-gray-800">
-              Step 1 of 4 - Your contact details
+              Step 2 of 6 - Your contact details
             </p>
           </div>
 
@@ -60,7 +63,7 @@ export default function Step2ParentDetails({ onNext, onBack, defaultValues }: St
                 <Input
                   id="firstName"
                   {...register('firstName')}
-                  className="h-12 bg-white border-0 shadow-md"
+                  className="h-12 bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]"
                 />
                 {errors.firstName && (
                   <p className="text-sm text-red-600 font-medium">{errors.firstName.message}</p>
@@ -74,7 +77,7 @@ export default function Step2ParentDetails({ onNext, onBack, defaultValues }: St
                 <Input
                   id="lastName"
                   {...register('lastName')}
-                  className="h-12 bg-white border-0 shadow-md"
+                  className="h-12 bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]"
                 />
                 {errors.lastName && (
                   <p className="text-sm text-red-600 font-medium">{errors.lastName.message}</p>
@@ -89,7 +92,7 @@ export default function Step2ParentDetails({ onNext, onBack, defaultValues }: St
                   id="email"
                   type="email"
                   {...register('email')}
-                  className="h-12 bg-white border-0 shadow-md"
+                  className="h-12 bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]"
                 />
                 {errors.email && (
                   <p className="text-sm text-red-600 font-medium">{errors.email.message}</p>
@@ -103,7 +106,7 @@ export default function Step2ParentDetails({ onNext, onBack, defaultValues }: St
                 <Input
                   id="mobileNo"
                   {...register('mobileNo')}
-                  className="h-12 bg-white border-0 shadow-md"
+                  className="h-12 bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]"
                 />
                 {errors.mobileNo && (
                   <p className="text-sm text-red-600 font-medium">{errors.mobileNo.message}</p>
@@ -119,7 +122,7 @@ export default function Step2ParentDetails({ onNext, onBack, defaultValues }: St
                 onValueChange={(value) => setValue('relationship', value)}
                 defaultValue={defaultValues?.relationship}
               >
-                <SelectTrigger className="h-12 bg-white border-0 shadow-md">
+                <SelectTrigger className="h-12 bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]">
                   <SelectValue placeholder="Parent" />
                 </SelectTrigger>
                 <SelectContent>

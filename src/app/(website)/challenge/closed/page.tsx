@@ -5,8 +5,11 @@ import Link from 'next/link';
 
 export default function ClosedPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F5A623] via-[#F9B850] to-[#FF8C42] px-4 py-12">
-      <div className="w-full max-w-4xl mx-auto space-y-8">
+    <div 
+      className="min-h-screen px-4 py-12 mt-12 md:mt-24 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/images/websites/challenge/closed.png)' }}
+    >
+      <div className="w-full max-w-4xl mx-auto space-y-8 ">
         {/* Alert Icon */}
         <div className="flex justify-center">
           <div className="w-24 h-24 rounded-full bg-[#FF6B6B] flex items-center justify-center shadow-xl">

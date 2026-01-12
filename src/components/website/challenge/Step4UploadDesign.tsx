@@ -136,16 +136,19 @@ export default function Step4UploadDesign({ onNext, onBack, defaultValues }: Ste
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex-1 px-4 py-12">
+    <div 
+      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/images/websites/challenge/step-four.png)' }}
+    >
+      <div className="flex-1 px-4 py-12 mt-12 md:mt-24">
         <div className="w-full max-w-4xl mx-auto space-y-8">
           {/* Heading */}
           <div className="text-center space-y-2">
-            <h1 className="text-4xl md:text-5xl font-black text-white leading-tight">
+            <h1 className="font-lilita text-4xl md:text-5xl font-black text-white leading-tight">
               Submit a Lunch Bag Design
             </h1>
             <p className="text-sm text-gray-800">
-              Step 3 of 6 - Upload Design
+              Step 4 of 6 - Upload Design
             </p>
           </div>
 

@@ -36,16 +36,19 @@ export default function Step3ChildSchoolInfo({ onNext, onBack, defaultValues }: 
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex-1 flex items-center justify-center px-4 py-12">
+    <div 
+      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/images/websites/challenge/step-three.png)' }}
+    >
+      <div className="flex-1 flex items-center justify-center px-4 py-12 mt-12 md:mt-24">
         <div className="w-full max-w-3xl space-y-8">
           {/* Heading */}
           <div className="text-center space-y-2">
-            <h1 className="text-4xl md:text-5xl font-black text-white leading-tight">
+            <h1 className="font-lilita text-4xl md:text-5xl font-black text-white leading-tight">
               Child & School Information
             </h1>
             <p className="text-sm text-gray-800">
-              Step 2 of 4 - Your contact details
+              Step 3 of 6 - Your contact details
             </p>
           </div>
 
@@ -62,7 +65,7 @@ export default function Step3ChildSchoolInfo({ onNext, onBack, defaultValues }: 
                 <Input
                   id="childNumber"
                   {...register('childNumber')}
-                  className="h-12 bg-white border-0 shadow-md max-w-xs"
+                  className="h-12 bg-white border-0 shadow-md max-w-xs focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]"
                 />
               </div>
 
@@ -74,7 +77,7 @@ export default function Step3ChildSchoolInfo({ onNext, onBack, defaultValues }: 
                   <Input
                     id="childFirstName"
                     {...register('childFirstName')}
-                    className="h-12 bg-white border-0 shadow-md"
+                    className="h-12 bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]"
                   />
                   {errors.childFirstName && (
                     <p className="text-sm text-red-600 font-medium">{errors.childFirstName.message}</p>
@@ -88,7 +91,7 @@ export default function Step3ChildSchoolInfo({ onNext, onBack, defaultValues }: 
                   <Input
                     id="childLastName"
                     {...register('childLastName')}
-                    className="h-12 bg-white border-0 shadow-md"
+                    className="h-12 bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]"
                   />
                   {errors.childLastName && (
                     <p className="text-sm text-red-600 font-medium">{errors.childLastName.message}</p>
@@ -105,7 +108,7 @@ export default function Step3ChildSchoolInfo({ onNext, onBack, defaultValues }: 
                     onValueChange={(value) => setValue('age', value)}
                     defaultValue={defaultValues?.age}
                   >
-                    <SelectTrigger className="h-12 bg-white border-0 shadow-md">
+                    <SelectTrigger className="h-12 bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]">
                       <SelectValue placeholder="Select age" />
                     </SelectTrigger>
                     <SelectContent>
@@ -157,7 +160,7 @@ export default function Step3ChildSchoolInfo({ onNext, onBack, defaultValues }: 
                     onValueChange={(value) => setValue('state', value)}
                     defaultValue={defaultValues?.state}
                   >
-                    <SelectTrigger className="h-12 bg-white border-0 shadow-md">
+                    <SelectTrigger className="h-12 bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]">
                       <SelectValue placeholder="Select" />
                     </SelectTrigger>
                     <SelectContent>
@@ -213,7 +216,7 @@ export default function Step3ChildSchoolInfo({ onNext, onBack, defaultValues }: 
                   onValueChange={(value) => setValue('lga', value)}
                   defaultValue={defaultValues?.lga}
                 >
-                  <SelectTrigger className="h-12 bg-white border-0 shadow-md">
+                  <SelectTrigger className="h-12 bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]">
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
                   <SelectContent>
@@ -234,7 +237,7 @@ export default function Step3ChildSchoolInfo({ onNext, onBack, defaultValues }: 
                   id="schoolName"
                   {...register('schoolName')}
                   placeholder="Start Typing School Name"
-                  className="h-12 bg-white border-0 shadow-md"
+                  className="h-12 bg-white border-0 shadow-md focus:ring-2 focus:ring-[#F66F39] focus:border-[#F66F39]"
                 />
                 {errors.schoolName && (
                   <p className="text-sm text-red-600 font-medium">{errors.schoolName.message}</p>
