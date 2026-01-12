@@ -1,22 +1,18 @@
-'use client'
-import Link from 'next/link';
+import Footer from '@/components/website/layout/footer';
+import Navbar from '@/components/website/layout/navbar';
 
 export default function WebsiteLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      {/* Navigation */}
-   
-
-      {/* Main Content */}
-      <main className="flex-1">
+    <>
+      <Navbar />
+      <main className="min-h-screen">
         {children}
       </main>
-
-     
-    </div>
+      <Footer />
+    </>
   );
 }
