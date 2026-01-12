@@ -73,7 +73,7 @@ export default function LoginPage() {
               setTimeout(() => {
                 console.log('Login simulation successful, redirecting...');
                 // Simulate successful login redirect
-                router.push('/admin/dashboard');
+                router.push('/admin/home');
               }, 1500);
               
             } catch (loginErr) {
@@ -136,8 +136,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-[#FFFDF8] flex items-center justify-center p-6">
       {/* Main Container */}
-      <div className="w-full max-w-[440px]">
-        
+      <div className="w-full max-w-110">
         {/* Logo & Header */}
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-[#F5A623] rounded-xl mx-auto mb-4 flex items-center justify-center">
