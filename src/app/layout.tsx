@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   keywords: ['education', 'tours', 'schools', 'inspections', 'management'],
   authors: [{ name: 'Maltina Tour Team' }],
   viewport: 'width=device-width, initial-scale=1',
+  icons: {
+    icon: [
+      { url: '/logo.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/logo.png', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
