@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
@@ -16,6 +16,22 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
+
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 200) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     const links = [
         { name: "Track the Tour", href: "/track" },
         { name: "Lunch Box Challenge", href: "/challenge" },
@@ -26,8 +42,8 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="w-full bg-[#F5A623] sticky top-0 z-50 border-b-4 border-[#E89515]">
-            <div className="max-w-7xl mx-auto px-4 xl:px-8">
+        <nav className={`w-full ${isScrolled ? "bg-white shadow-xl" : 'bg-transparent'} fixed top-0 z-50 `}>
+            <div className="max-w-6xl xl:max-w-7xl mx-auto px-4 xl:px-0">
                 <div className="flex justify-between items-center h-20 md:h-24 lg:justify-start">
                     {/* Mobile Menu - Sheet (Left side) */}
                     <Sheet>
@@ -57,7 +73,7 @@ const Navbar = () => {
                                         <Link
                                             href={link.href}
                                             className={cn(
-                                                "px-6 py-4 text-[#666666] hover:text-black hover:bg-gray-50",
+                                                "px-6 py-4 text-[#707070] hover:text-black hover:bg-gray-50",
                                                 "text-base font-normal transition-colors border-b border-gray-100 last:border-0"
                                             )}
                                         >
@@ -80,7 +96,7 @@ const Navbar = () => {
                             priority
                         />
                     </Link>
-                    
+
                     {/* Spacer for mobile to balance layout */}
                     <div className="w-10 lg:hidden"></div>
 
@@ -90,7 +106,7 @@ const Navbar = () => {
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="text-white font-medium hover:text-gray-100 transition-colors text-sm xl:text-base whitespace-nowrap"
+                                className="text-[#707070] font-poppins hover:text-gray-100 transition-colors text-sm xl:text-base whitespace-nowrap"
                             >
                                 {link.name}
                             </Link>
