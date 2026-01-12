@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { QueryProvider } from '@/lib/providers/query-provider';
 import { AuthProvider } from '@/contexts/auth-context';
+import { Toaster } from '@/components/ui/toaster';
 
 import { Lilita_One, Poppins } from 'next/font/google';
 
@@ -23,6 +24,14 @@ export const metadata: Metadata = {
   keywords: ['education', 'tours', 'schools', 'inspections', 'management'],
   authors: [{ name: 'Maltina Tour Team' }],
   viewport: 'width=device-width, initial-scale=1',
+  icons: {
+    icon: [
+      { url: '/logo.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/logo.png', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -36,6 +45,7 @@ export default function RootLayout({
         <QueryProvider>
           <AuthProvider>
             {children}
+            <Toaster />
           </AuthProvider>
         </QueryProvider>
       </body>

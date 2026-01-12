@@ -144,6 +144,10 @@
   }
 }
 
+.breakpoint {
+  @apply max-w-6xl xl:max-w-7xl mx-auto px-4 xl:px-0;
+}
+
 /**
  * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
  */
