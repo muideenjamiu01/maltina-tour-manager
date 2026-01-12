@@ -145,11 +145,9 @@
 }
 
 .breakpoint {
-  @apply max-w-6xl xl:max-w-7xl mx-auto px-4 xl:px-0;
+  @apply max-w-6xl 2xl:max-w-7xl mx-auto px-4 xl:px-0;
 }
-/**
- * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
- */
+
 @layer base {
   :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
     h1 {
