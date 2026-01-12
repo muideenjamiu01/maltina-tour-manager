@@ -154,14 +154,24 @@ const page = () => {
                 </button>
               </div>
             </div>
-            <div className='relative max-[500px]:h-[150px] h-[250px]'>
+            <div className='relative max-[500px]:hidden h-[250px]'>
               <Image src={swillImage} className='w-full md:w-[80%] max-[500px]:object-cover object-fit h-[150px] md:h-[250px] absolute top-[100px] sm:top-5 left-0 sm:left-[5%] z-10' alt="Swill Image" />
               <Image src={mailtinaBottle} className='w-[250px] object-fit h-[250px] md:h-[250px] absolute top-0 right-10 z-1' alt="Mailtina Bottle" />
             </div>
+
           </div>
         </section>
       </section>
-      <div className='py-8 relative text-center font-semibold bg-[#FFDF08] z-20'>
+      <div style={{ backgroundImage: `url(${landingPageImage.src})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+        <Image
+          width={window.innerWidth}
+          height={170}
+          src={'/images/websites/home/Group 17.png'}
+          alt='bottle laptop'
+          className='w-[100%] h-[410px]  object-fit  sm:hidden'
+        />
+      </div>
+      <div className='py-8 max-[500px]:hidden relative text-center font-semibold bg-[#FFDF08] z-20'>
         Sign up your child or their school to be part of the journey today
       </div>
     </div>
