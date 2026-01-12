@@ -4,6 +4,20 @@ import { QueryProvider } from '@/lib/providers/query-provider';
 import { AuthProvider } from '@/contexts/auth-context';
 import { Toaster } from '@/components/ui/toaster';
 
+import { Lilita_One, Poppins } from 'next/font/google';
+
+const lilitaOne = Lilita_One({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-lilita-one',
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-poppins-sans',
+});
+
 export const metadata: Metadata = {
   title: 'Maltina Tour - Educational Excellence Platform',
   description: 'Comprehensive platform for managing educational tours, school inspections, and academic programs.',
@@ -19,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-background font-sans antialiased">
+      <body className={`min-h-screen bg-background font-sans antialiased ${lilitaOne.variable} ${poppins.variable}`}>
         <QueryProvider>
           <AuthProvider>
             {children}
