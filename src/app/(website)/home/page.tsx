@@ -164,7 +164,7 @@ const page = () => {
       </section>
       <div style={{ backgroundImage: `url(${landingPageImage.src})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
         <Image
-          width={window.innerWidth}
+          width={1000}
           height={170}
           src={'/images/websites/home/Group 17.png'}
           alt='bottle laptop'
