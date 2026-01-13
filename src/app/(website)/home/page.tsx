@@ -16,12 +16,12 @@ const page = () => {
       <header className='relative z-10 bg-[#ff9e16] h-[500px] md:h-[700px]'>
         <Image className='w-full max-[500px]:hidden object-fit h-[800px] md:h-[1100px] min-[2500px]:h-[1500px] absolute top-0 left-0' src={HeroImage} alt="Hero Image" />
         <Image className='w-full sm:hidden object-fit h-[675px] md:h-[1100px] min-[2500px]:h-[1500px] absolute top-0 left-0' src={mobileHeroImage} alt="Hero Image" />
-        <div className="relative max-[500px]:p-4 z-20 h-full breakpoint">
+        <div className="absolute sm:left-[5%] top-[20%] max-[500px]:p-4 z-20 h-full breakpoint">
           <motion.h4
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.5 }}
-            className='text-[45px] font-lilita absolute  top-[15%] max-[500px]:w-[90%] max-[500px]:left-[5%] left-0 max-w-[600px] leading-tight text-black'
+            className='text-[45px] font-lilita  leading-tight text-black'
           >
             The Maltina Nourishment Tour:
           </motion.h4>
@@ -29,15 +29,15 @@ const page = () => {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1.0 }}
-            className='text-[25px] max-[500px]:w-[90%] max-[500px]:left-[5%] max-[500px]:top-[36%] font-lilita mt-2 absolute md:top-[22%] left-0 text-black'
+            className='text-[25px] font-lilita mt-2 text-black'
           >
             Inspiring Future Scientists Across Nigeria
           </motion.h4>
         </div>
       </header>
-      <section className='relative z-1 max-[500px]:h-[4000px] h-[2500px] bg-[#ff9e16] max-[500px]:-mt-[200px] -mt-[480px]'>
-        <Image className='w-full  object-fit max-[500px]:h-[4000px] h-[2500px] absolute top-0 left-0' src={landingPageImage} alt="Hero Image" />
-        <section className='absolute max-[500px]:top-[10%] top-[26%] left-0 w-full'>
+      <section className='relative z-1 max-[500px]:h-[3700px] h-[2500px] bg-[#ff9e16] max-[500px]:-mt-[200px] -mt-[480px]'>
+        <Image className='w-full  object-fit max-[500px]:h-[3700px] h-[2500px] absolute top-0 left-0' src={landingPageImage} alt="Hero Image" />
+        <section className='absolute max-[500px]:top-[12%] top-[26%] left-0 w-full'>
           <div className="breakpoint text-center">
             <h2 className='w-full font-lilita mx-auto text-4xl md:text-[60px] font-bold text-white'>
               Join The Maltina Nourishment Tour
@@ -55,15 +55,15 @@ const page = () => {
             </p>
           </div>
         </section>
-        <section className='absolute max-[500px]:top-[30%] top-[43%] left-0 w-full'>
+        <section className='absolute max-[500px]:top-[33%] top-[43%] left-0 w-full'>
           <div className="breakpoint">
             <div className="md:w-[90%] mx-auto">
               <div className='p-8 md:p-12 bg-[#FBDA8F] w-full rounded-[3rem]'>
                 <div className="flex flex-col items-center mb-8 md:mb-12">
                   <p className='font-poppins text-2xl md:text-2xl text-[#292526] mb-2'>Children Reached</p>
                   <div className='font-lilita text-[#1A1A1A] flex items-baseline gap-1'>
-                    <span className='text-5xl md:text-6xl'>184,000</span>
-                    <span className='text-3xl md:text-4xl opacity-80'>/1,000,000</span>
+                    <span className='text-4xl md:text-6xl'>184,000</span>
+                    <span className='text-2xl md:text-4xl opacity-80'>/1,000,000</span>
                   </div>
                 </div>
 
@@ -168,7 +168,7 @@ const page = () => {
           height={170}
           src={'/images/websites/home/Group 17.png'}
           alt='bottle laptop'
-          className='w-[100%] h-[410px]  object-fit  sm:hidden'
+          className='w-[100%] h-[450px]  object-fit  sm:hidden'
         />
       </div>
       <div className='py-8 max-[500px]:hidden relative text-center font-semibold bg-[#FFDF08] z-20'>
