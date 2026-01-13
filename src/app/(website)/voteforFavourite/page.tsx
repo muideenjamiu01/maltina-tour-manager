@@ -9,7 +9,7 @@ import VotingRules from "@/components/website/VotingRules"
 
 export default function VoteForFavorite() {
   return (
-     <div className="relative min-h-screen">
+     <div className="relative min-h-screen pt-20">
       
     
       <Image
@@ -20,8 +20,7 @@ export default function VoteForFavorite() {
         className="object-cover"
       />
        <div className="relative z-10">
-      {/* Header */}
-      <Navbar />
+   
 
       {/* Hero Section (Title + subtitle + background) */}
       <VoteHero />
@@ -39,7 +38,7 @@ export default function VoteForFavorite() {
       <VotingRules />
 
       {/* Footer */}
-      <Footer />
+  
     </div>
     </div>
   )

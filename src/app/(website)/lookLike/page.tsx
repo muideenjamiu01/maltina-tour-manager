@@ -6,25 +6,22 @@ import Image from "next/image"
 
 export default function lookLike() {
   return (
-     <div className="relative min-h-screen">
-      
-    
-      <Image
-        src="/assets/background.png"
-        alt="Vote background"
-        fill
-        priority
-        className="object-cover"
-      />
-       <div className="relative z-10">
-      {/* Header */}
-      <Navbar />
+     <div className="relative min-h-screen pt-20">
+         
+       
+         <Image
+           src="/assets/background.png"
+           alt="Vote background"
+           fill
+           priority
+           className="object-cover"
+         />
+          <div className="relative z-10">
 
       <AlreadyVoted />
      
 
-      {/* Footer */}
-      <Footer />
+     
     </div>
     </div>
   )

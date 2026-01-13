@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Navbar from "@/components/website/layout/navbar";
 import Footer from "@/components/website/layout/footer";
+import Link from "next/link"
 
 export default function VoteConfirm() {
   return (
@@ -17,25 +18,48 @@ export default function VoteConfirm() {
       />
 
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Navbar />
+      
 
-        <main className="flex-1 px-4 py-20 ">
+        <main className="flex-1 px-4 py-20  ">
             {/* LEFT SIDE */}
-            <div className="space-y-4 text-black ml-20 mb-2">
-              {/* Article / Function Text */}
-              <div>
-                <p className="text-xs uppercase tracking-wide opacity-80">
-                  Maltina Brand Ambassador
-                </p>
-                <h2 className="text-lg font-bold mt-1">
-                  Kids Creative Design Contest
-                </h2>
-                <p className="text-sm mt-2 opacity-90 max-w-sm">
-                  Vote for your favorite design and support young creative
-                  talents across Nigeria.
-                </p>
-              </div>
-              </div>
+<div className="space-y-2 text-black max-w-md mx-6 md:mx-20 mt-6 ml-6 mb-4">
+  {/* Article / Function Text */}
+  <div className="space-y-2">
+
+    {/* Back Link */}
+    <Link
+      href="/finalists"
+      className="inline-flex items-center gap-2 text-black text-sm font-medium px-2 py-1 rounded-md"
+    >
+      ← Back to all Finalists
+    </Link>
+
+    {/* Location */}
+
+   <div className="ml-5">
+  <div>
+    <p className="inline-block border-2 border-orange-400 text-black px-2 py-1 rounded text-sm">
+      South West
+    </p>
+    <p className="inline-block ml-2 text-sm">
+      Lagos
+    </p>
+  </div>
+
+  {/* Name */}
+  <p className="text-md font-medium">
+    Aisha. K
+  </p>
+
+  {/* Meta info */}
+  <p className="text-xs text-black">
+    Age 12 • Female • JSS 2 • Government Primary School Ikeja
+  </p>
+</div>
+</div>
+</div>
+
+
           <div className="max-w-md mx-auto text-center space-y-6 pt-5">
 
             {/* TOP DESIGNER IMAGE */}
@@ -112,13 +136,14 @@ export default function VoteConfirm() {
   </p>
 
   {/* CONFIRM BUTTON */}
+ <Link href="/beforeConfirming">
   <button
-    type="submit"
-    className=" bg-gray-100 
-               text-black  rounded-md transition p-2"
+    type="button"
+    className="bg-gray-100 text-black rounded-md transition p-2 hover:bg-gray-200"
   >
     Confirm Vote for this Design
   </button>
+</Link>
 
   {/* RULES LINK */}
   <div className="text-center pt-4">

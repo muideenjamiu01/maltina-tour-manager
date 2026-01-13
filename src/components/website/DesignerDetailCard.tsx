@@ -27,7 +27,7 @@ export default function DesignerDetailCard({
 
       {/* BACK BUTTON */}
       <Link
-        href="/finalists"
+        href="/voteforFavourite"
         className="inline-flex items-center gap-2 mb-6 bg-gray-200 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-300"
       >
         ← Back to all Finalists
@@ -146,10 +146,11 @@ export default function DesignerDetailCard({
   </span>
             </p>
             
-
-            <button className="bg-gray-200 transition text-black px-8 py-3 rounded-md">
-              Vote for this Design
-            </button>
+<Link href="/voteConfirm" passHref>
+  <button className="bg-gray-200 transition text-black px-8 py-3 rounded-md hover:bg-gray-300">
+    Vote for this Design
+  </button>
+</Link>
 
            
           </div>

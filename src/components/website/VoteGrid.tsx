@@ -1,15 +1,17 @@
 import Image from "next/image"
+import Link from "next/link"
 
-const designs = Array.from({ length: 9 })
+const designs = Array.from({ length: 6 })
 
 export default function VoteGrid() {
   return (
     <section className="py-10">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="max-w-6xl mx-auto sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
         {designs.map((_, i) => (
           <div
             key={i}
-            className="bg-white rounded-lg shadow hover:shadow-lg transition"
+            className="bg-white  shadow hover:shadow-lg transition"
           >
             <Image
               src="/assets/sampleperson.png"
@@ -27,9 +29,11 @@ export default function VoteGrid() {
                 Creative lunch bag design
               </p>
 <div className="flex justify-end mt-4">
-  <button className="border border-orange-400 bg-gray text-black px-3 py-1 rounded-md hover:text-white transition">
-    View & Vote
-  </button>
+  <Link href="/designerDetails" passHref>
+    <button className="border border-orange-400 bg-gray text-black px-3 py-1 rounded-md transition hover:bg-orange-400 hover:text-white">
+      View & Vote
+    </button>
+  </Link>
 </div>
 
 

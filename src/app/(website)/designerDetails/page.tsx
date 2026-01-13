@@ -16,7 +16,6 @@ export default function DesignerDetail() {
            className="object-cover"
          />
           <div className="relative z-10">
-      <Navbar />
 
      <section className="container mx-auto px-4 py-20">
         <div className="max-w-6xl mx-auto">
@@ -65,7 +64,7 @@ export default function DesignerDetail() {
         </div>
       </section>
 
-      <Footer />
+   
       </div>
       </div>
     

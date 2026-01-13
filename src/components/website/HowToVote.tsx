@@ -47,7 +47,7 @@ export default function HowToVote() {
 
       {/* Content */}
       <div className="relative z-20 max-w-6xl mx-auto px-6 pt-9 pb-24 text-white">
-        <h1 className="font-['Lilita_One'] relative z-10 flex flex-col items-center text-center text-6xl md:text-8xl drop-shadow-md">
+        <h1 className="font-['Lilita_One'] relative z-10 flex flex-col items-center text-center text-5xl md:text-7xl drop-shadow-md">
           How Voting Works
         </h1>
 
@@ -74,11 +74,11 @@ export default function HowToVote() {
   </span>
 
 <div className="max-w-[170px]">
-  <h3 className="font-['Poppins'] mt-3 font-bold text-3xl leading-none">
+  <h3 className="font-['Poppins'] mt-3 font-bold text-2xl leading-none">
     {step.title}
   </h3>
 
-  <p className="text-lg md:text-xl lg:text-2xl0 leading-none">
+  <p className="text-lg md:text-xl lg:text-sm leading-tight mt-2">
     {step.text}
   </p>
 </div>
@@ -108,7 +108,7 @@ export default function HowToVote() {
         {/* CTA */}
      <div className="mt-10 flex justify-center">
   <Link
-    href="/finalists"
+    href="/voteforFavourite"
     className="inline-block bg-white text-black font-semibold px-8 py-3 rounded-full shadow-md hover:bg-orange-100 transition"
   >
     View all 18 finalists

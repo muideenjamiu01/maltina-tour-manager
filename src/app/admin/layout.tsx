@@ -3,7 +3,7 @@
 import { useState, createContext, useContext } from 'react';
 import { AdminSidebar } from '@/components/admin/sidebar/admin-sidebar';
 import { ProtectedRoute } from '@/components/auth/protected-route';
-
+import { Lilita_One } from "next/font/google"
 interface SidebarContextType {
   sidebarOpen: boolean;
   setSidebarOpen: (open: boolean) => void;

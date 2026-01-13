@@ -5,25 +5,24 @@ import VotingEnded from "@/components/website/VotingEnded"
 
 export default function VoteEnd() {
   return (
-     <div className="relative min-h-screen">
+     <div className="relative min-h-screen pt-20">
+         
+       
+         <Image
+           src="/assets/background.png"
+           alt="Vote background"
+           fill
+           priority
+           className="object-cover"
+         />
+          <div className="relative z-10">
       
-    
-      <Image
-        src="/assets/background.png"
-        alt="Vote background"
-        fill
-        priority
-        className="object-cover"
-      />
-       <div className="relative z-10">
-      {/* Header */}
-      <Navbar />
+     
 
       <VotingEnded />
      
 
-      {/* Footer */}
-      <Footer />
+  
     </div>
     </div>
   )
