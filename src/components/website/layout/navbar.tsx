@@ -43,7 +43,7 @@ const Navbar = () => {
 
     return (
         <nav className={`w-full ${isScrolled ? "bg-white shadow-xl" : 'bg-transparent'} fixed top-0 z-50 `}>
-            <div className="max-w-6xl xl:max-w-7xl mx-auto px-4 xl:px-0">
+            <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-4 xl:px-0">
                 <div className="flex justify-between items-center h-20 md:h-24 lg:justify-start">
                     {/* Mobile Menu - Sheet (Left side) */}
                     <Sheet>
@@ -51,7 +51,7 @@ const Navbar = () => {
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="text-white hover:bg-[#E89515] hover:text-white"
+                                className={`${isScrolled ? "text-black" : "text-white"} hover:bg-[#E89515] hover:text-white`}
                             >
                                 <Menu size={28} strokeWidth={2.5} />
                                 <span className="sr-only">Toggle menu</span>
