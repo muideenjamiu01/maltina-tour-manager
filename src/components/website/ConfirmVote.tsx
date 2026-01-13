@@ -1,4 +1,3 @@
-import { Link } from "lucide-react";
 import Image from "next/image";
 
 export default function ConfirmVoteSection() {
@@ -113,11 +112,9 @@ export default function ConfirmVoteSection() {
 
         {/* Action Buttons */}
         <div className="mt-8 flex flex-wrap gap-4">
-          <Link href="/voteRecorded" >
-  <button className="rounded-md bg-gray-100 px-6 py-2 text-sm font-medium text-black shadow hover:bg-gray-200 transition">
-    Confirm My Vote
-  </button>
-</Link>
+          <button className="rounded-md bg-gray-100 px-6 py-2 text-sm font-medium text-black shadow hover:bg-gray-100">
+            Confirm My Vote
+          </button>
 
           <button className="rounded-md bg-gray-100 px-6 py-2 text-sm font-medium text-black hover:bg-gray-100">
             Cancel
