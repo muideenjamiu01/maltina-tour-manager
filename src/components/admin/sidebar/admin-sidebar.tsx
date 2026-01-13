@@ -30,8 +30,11 @@ import {
   Upload,
   FormInput,
   GitBranch,
+  X,
+  LogOut,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/contexts/auth-context';
 
 interface NavigationItem {
   name: string;
@@ -49,24 +52,29 @@ const navigationItems: NavigationItem[] = [
     icon: Home,
   },
   {
-    name: 'Campaign Management',
+    name: 'Campaign',
     icon: Calendar,
     children: [
       {
-        name: 'Campaign Years',
-        href: '/admin/campaign-management/campaign-years',
+        name: 'Campaign Details',
+        href: '/admin/campaigns',
         icon: Calendar,
       },
-      {
-        name: 'Targets & Progress',
-        href: '/admin/campaign-management/targets-progress',
-        icon: BarChart3,
-      },
-      {
-        name: 'Campaign Lock',
-        href: '/admin/campaign-management/campaign-lock',
-        icon: Lock,
-      },
+      // {
+      //   name: 'Campaign Years',
+      //   href: '/admin/campaign-management/campaign-years',
+      //   icon: Calendar,
+      // },
+      // {
+      //   name: 'Targets & Progress',
+      //   href: '/admin/campaign-management/targets-progress',
+      //   icon: BarChart3,
+      // },
+      // {
+      //   name: 'Campaign Lock',
+      //   href: '/admin/campaign-management/campaign-lock',
+      //   icon: Lock,
+      // },
     ],
   },
   {
@@ -123,38 +131,91 @@ const navigationItems: NavigationItem[] = [
     ],
   },
   {
-    name: 'Scheduling & Booking',
+    name: 'Operations',
     icon: CalendarDays,
     children: [
       {
-        name: 'Booking Control',
-        href: '/admin/scheduling-booking/booking-control',
+        name: 'Nomination Review',
+        href: '/admin/operations/nomination-review',
         icon: BookOpen,
       },
       {
-        name: 'Calendar View',
-        href: '/admin/scheduling-booking/calendar-view',
+        name: 'Interest & Criteria',
+        href: '/admin/operations/interest-criteria',
         icon: CalendarDays,
       },
       {
-        name: 'Slot Management',
-        href: '/admin/scheduling-booking/slot-management',
+        name: 'RECEE Queue',
+        href: '/admin/operations/recee-queue',
         icon: Clock,
       },
+      {
+        name: 'RECEE Approvals',
+        href: '/admin/operations/recee-approvals',
+        icon: UserCheck,
+      },
+      {
+        name: 'Cluster Management',
+        href: '/admin/operations/cluster-management',
+        icon: UserCheck,
+      },
+      {
+        name: 'Booking Setup',
+        href: '/admin/operations/booking-setup',
+        icon: UserCheck,
+      },
+
+      {
+        name: 'Booking Links',
+        href: '/admin/operations/booking-links',
+        icon: UserCheck,
+      },
+      {
+        name: 'Booking Management',
+        href: '/admin/operations/booking-management',
+        icon: UserCheck,
+      },
+       {
+        name: 'Ready for Tour',
+        href: '/admin/operations/ready-for-tour',
+        icon: UserCheck,
+      },
+      
     ],
   },
   {
-    name: 'User Management',
-    icon: Users,
+    name: 'Admin',
+    icon: Cog,
     children: [
       {
         name: 'User Directory',
         href: '/admin/user-management/user-directory',
         icon: Users,
       },
+       {
+        name: 'Roles & Permissions',
+        href: '/admin/user-management/roles-permissions',
+        icon: UserCheck,
+      },
       {
-        name: 'Facilitator Directory',
-        href: '/admin/user-management/facilitator-directory',
+        name: 'User Account',
+        href: '/admin/user-management/user-account',
+        icon: UserCheck,
+      },
+      {
+        name: 'Audit Log',
+        href: '/admin/user-management/audit-log',
+        icon: UserCheck,
+      },
+      
+      {
+        name: 'Security Events',
+        href: '/admin/user-management/security-events',
+        icon: UserCheck,
+      },
+      {
+        name: 'Data Changes',
+        href: '/admin/user-management/data-changes',
         icon: UserCheck,
       },
     ],
@@ -178,11 +239,13 @@ const navigationItems: NavigationItem[] = [
         href: '/admin/communication/sms-templates',
         icon: MessageSquare,
       },
+      
       {
         name: 'SMS Sent',
         href: '/admin/communication/sms-sent',
         icon: MessageSquare,
       },
+     
     ],
   },
   {
@@ -207,24 +270,53 @@ const navigationItems: NavigationItem[] = [
     ],
   },
   {
-    name: 'Tour Day Control',
+    name: 'Tour',
     icon: Radio,
-    badge: 'LIVE',
-    badgeVariant: 'live',
     children: [
       {
-        name: 'Today Control Room',
-        href: '/admin/tour-day-control/control-room',
+        name: 'Assign Facilitator',
+        href: '/admin/tour/assign-facilitator',
         icon: Radio,
       },
       {
-        name: 'Submission Completeness',
-        href: '/admin/tour-day-control/submission-completeness',
+        name: 'Cluster Management',
+        href: '/admin/tour/cluster-management',
         icon: FileText,
       },
+      
       {
-        name: 'Risk Radar',
-        href: '/admin/tour-day-control/risk-radar',
+        name: 'Booking Tracker',
+        href: '/admin/tour/book-tracker',
+        icon: BarChart3,
+      },
+      {
+        name: 'Today Control Room',
+        href: '/admin/tour/today-control-room',
+        icon: BarChart3,
+      },
+       {
+        name: 'Tour Summary',
+        href: '/admin/tour/tour-summary',
+        icon: BarChart3,
+      },
+      {
+        name: 'Tour Facilitators',
+        href: '/admin/tour/tour-facilitators',
+        icon: BarChart3,
+      },
+        {
+        name: 'Impact Survey',
+        href: '/admin/tour/impact-survey',
+        icon: BarChart3,
+      },
+       {
+        name: 'Teacher Survey',
+        href: '/admin/tour/teacher-survey',
+        icon: BarChart3,
+      },
+       {
+        name: 'Tour Analyst',
+        href: '/admin/tour/tour-analyst',
         icon: BarChart3,
       },
     ],
@@ -246,24 +338,42 @@ const navigationItems: NavigationItem[] = [
     ],
   },
   {
-    name: 'Reports & Analytics',
+    name: 'Reports',
     icon: BarChart3,
     children: [
       {
-        name: 'KPI Overview',
-        href: '/admin/reports-analytics/kpi-overview',
+        name: 'Rejections & Exceptions',
+        href: '/admin/reports-analytics/rejections-exceptions',
+        icon: BarChart3,
+      },
+      
+      {
+        name: 'Geo Coverage',
+        href: '/admin/reports-analytics/geo-coverage',
         icon: BarChart3,
       },
       {
-        name: 'Impact Evidence',
-        href: '/admin/reports-analytics/impact-evidence',
-        icon: BarChart3,
-      },
-      {
-        name: 'Exports',
-        href: '/admin/reports-analytics/exports',
+        name: 'Weekly Executive',
+        href: '/admin/reports-analytics/weekly-executive',
         icon: FileText,
       },
+       {
+        name: 'SLA & Stuck Schools',
+        href: '/admin/reports-analytics/sla-stuck-schools',
+        badge: 4,
+        icon: BarChart3,
+      },
+      {
+        name: 'School Case File',
+        href: '/admin/reports-analytics/school-case-file',
+        icon: FileText,
+      },
+       {
+        name: 'Tour Ops Dashboard',
+        href: '/admin/reports-analytics/tour-ops-dashboard',
+        icon: FileText,
+      },
+      
     ],
   },
   {
@@ -271,82 +381,46 @@ const navigationItems: NavigationItem[] = [
     icon: Trophy,
     children: [
       {
-        name: 'Competition Setup',
-        href: '/admin/competition/setup',
+        name: 'Competition Manager',
+        href: '/admin/competition/competition-manager',
         icon: SettingsIcon,
       },
       {
-        name: 'Judging Ops',
-        href: '/admin/competition/judging-ops',
+        name: 'Admin Dashboard',
+        href: '/admin/competition/admin-dashboard',
         icon: FileText,
       },
-      {
-        name: 'Finalists & Voting',
-        href: '/admin/competition/finalists-voting',
-        icon: Trophy,
-      },
-      {
-        name: 'Results',
-        href: '/admin/competition/results',
-        icon: Trophy,
-      },
+   
+    
     ],
   },
-  {
-    name: 'Logs & Audit',
-    icon: FileSearch,
-    children: [
-      {
-        name: 'Audit Log',
-        href: '/admin/logs-audit/audit-log',
-        icon: FileText,
-      },
-      {
-        name: 'Security Events',
-        href: '/admin/logs-audit/security-events',
-        icon: FileText,
-      },
-    ],
-  },
-  {
-    name: 'Settings',
-    icon: Cog,
-    children: [
-      {
-        name: 'Roles & Permissions',
-        href: '/admin/settings/roles-permissions',
-        icon: SettingsIcon,
-      },
-      {
-        name: 'Token Policies',
-        href: '/admin/settings/token-policies',
-        icon: SettingsIcon,
-      },
-      {
-        name: 'Notifications',
-        href: '/admin/settings/notifications',
-        icon: SettingsIcon,
-      },
-      {
-        name: 'SLA Thresholds',
-        href: '/admin/settings/sla-thresholds',
-        icon: SettingsIcon,
-      },
-      {
-        name: 'Data Quality Rules',
-        href: '/admin/settings/data-quality-rules',
-        icon: SettingsIcon,
-      },
-    ],
-  },
+  
+  
 ];
 
-export function AdminSidebar() {
+interface AdminSidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
   const [expandedItems, setExpandedItems] = useState<string[]>([
     'Schools',
     'User Management',
   ]);
   const pathname = usePathname();
+  const { user, logout } = useAuth();
+
+  const handleLogout = async () => {
+    const confirmLogout = window.confirm('Are you sure you want to logout?');
+    if (confirmLogout) {
+      try {
+        await logout();
+      } catch (error) {
+        console.error('Logout failed:', error);
+      }
+    }
+  };
 
   const toggleExpanded = (itemName: string) => {
     setExpandedItems((prev) =>
@@ -370,17 +444,30 @@ export function AdminSidebar() {
   };
 
   return (
-    <aside className="w-[260px] h-screen bg-white border-r border-[#E5E7EB] flex-shrink-0 flex flex-col">
+    <aside className={cn(
+      "w-[260px] h-full bg-white border-r border-[#E5E7EB] flex-shrink-0 flex flex-col transition-transform duration-300 ease-in-out",
+      "lg:translate-x-0 lg:static lg:z-auto",
+      "fixed inset-y-0 left-0 z-50",
+      isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+    )}>
       {/* Header */}
       <div className="p-6 border-b border-[#E5E7EB]">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#F5A623] rounded-lg flex items-center justify-center">
-            <Home className="w-5 h-5 text-white" />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-[#F5A623] rounded-lg flex items-center justify-center">
+              <Home className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <div className="text-[#2B2B2B] font-medium">Maltina Tour</div>
+              <div className="text-xs text-[#9E9E9E]">Admin Control</div>
+            </div>
           </div>
-          <div>
-            <div className="text-[#2B2B2B] font-medium">Maltina Tour</div>
-            <div className="text-xs text-[#9E9E9E]">Admin Control</div>
-          </div>
+          <button
+            onClick={onClose}
+            className="lg:hidden p-2 hover:bg-[#F2F1EE] rounded-lg transition-colors"
+          >
+            <X className="w-5 h-5 text-[#9E9E9E]" />
+          </button>
         </div>
       </div>
 
@@ -492,17 +579,27 @@ export function AdminSidebar() {
 
       {/* Footer */}
       <div className="p-4 border-t border-[#E5E7EB]">
-        <div className="flex items-center gap-3 p-3 rounded-lg bg-[#F2F1EE]">
+        <div className="flex items-center gap-3 p-3 rounded-lg bg-[#F2F1EE] mb-3">
           <div className="w-9 h-9 bg-[#F5A623] rounded-full flex items-center justify-center">
-            <span className="text-sm font-medium text-white">TM</span>
+            <span className="text-sm font-medium text-white">
+              {user?.firstName ? user.firstName[0] + (user.lastName?.[0] || '') : 'TM'}
+            </span>
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-sm text-[#2B2B2B] truncate font-medium">
-              Tour Manager
+              {user?.firstName ? `${user.firstName} ${user.lastName || ''}`.trim() : 'Tour Manager'}
             </div>
-            <div className="text-xs text-[#9E9E9E]">Campaign 2025</div>
+            <div className="text-xs text-[#9E9E9E]">{user?.role || 'Admin'}</div>
           </div>
         </div>
+        
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center gap-3 px-3 py-2 text-[#8C1D18] hover:bg-[#FFF0F0] rounded-lg transition-colors text-sm"
+        >
+          <LogOut className="w-4 h-4" />
+          <span>Logout</span>
+        </button>
       </div>
     </aside>
   );
