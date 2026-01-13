@@ -113,7 +113,7 @@ export default function Step2FindSchool({ formData, updateFormData, onNext, onBa
         backgroundImage: "url('/images/websites/challenge/step-two.png')",
       }}
     >
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-2xl mx-auto px-4 py-16 mt-12 md:mt-24">
       {/* Progress Bar */}
       <div className="text-center space-y-2 mb-6">
         <div className="flex justify-between text-sm md:text-base text-gray-900 font-semibold">
