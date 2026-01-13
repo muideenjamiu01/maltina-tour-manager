@@ -7,6 +7,7 @@ import Step1SelectLocation from '@/components/website/nominate/Step1SelectLocati
 import Step2FindSchool from '@/components/website/nominate/Step2FindSchool';
 import Step3ConfirmDetails from '@/components/website/nominate/Step3ConfirmDetails';
 
+
 export default function NominateSchoolPage() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
@@ -48,8 +49,8 @@ export default function NominateSchoolPage() {
   };
 
   return (
-    <div className="min-h-screen py-8 md:py-12 px-4">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen">
+     
         {currentStep === 1 && (
           <Step1SelectLocation
             formData={formData}
@@ -74,7 +75,7 @@ export default function NominateSchoolPage() {
             onBack={handleBack}
           />
         )}
-      </div>
+   
     </div>
   );
 }
