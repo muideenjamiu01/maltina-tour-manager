@@ -10,6 +10,7 @@ import Step3SchoolContact from '@/components/website/nominate/Step3SchoolContact
 import Step4YourDetails from '@/components/website/nominate/Step4YourDetails';
 import Step5Review from '@/components/website/nominate/Step5Review';
 
+
 export default function NominateSchoolPage() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);

@@ -204,8 +204,8 @@ export default function Step3ConfirmDetails({ formData, updateFormData, onSubmit
                   onClick={() => setValue('schoolType', 'Primary')}
                   disabled={!formData.manualEntry}
                   className={`py-4 px-6 rounded-lg text-base font-semibold transition-all ${schoolType === 'Primary'
-                      ? 'bg-white text-gray-900 shadow-lg'
-                      : 'bg-white/80 text-gray-700'
+                    ? 'bg-white text-gray-900 shadow-lg'
+                    : 'bg-white/80 text-gray-700'
                     }`}
                 >
                   Primary School
@@ -215,8 +215,8 @@ export default function Step3ConfirmDetails({ formData, updateFormData, onSubmit
                   onClick={() => setValue('schoolType', 'Secondary')}
                   disabled={!formData.manualEntry}
                   className={`py-4 px-6 rounded-lg text-base font-semibold transition-all ${schoolType === 'Secondary'
-                      ? 'bg-white text-gray-900 shadow-lg'
-                      : 'bg-white/80 text-gray-700'
+                    ? 'bg-white text-gray-900 shadow-lg'
+                    : 'bg-white/80 text-gray-700'
                     }`}
                 >
                   Secondary School
@@ -405,8 +405,8 @@ export default function Step3ConfirmDetails({ formData, updateFormData, onSubmit
               onClick={handleVerify}
               disabled={isVerified}
               className={`font-semibold text-base px-8 py-6 h-auto rounded-lg shadow-md ${isVerified
-                  ? 'bg-green-500 text-white hover:bg-green-600'
-                  : 'bg-white text-gray-900 hover:bg-gray-100'
+                ? 'bg-green-500 text-white hover:bg-green-600'
+                : 'bg-white text-gray-900 hover:bg-gray-100'
                 }`}
             >
               {isVerified ? '✓ Verified' : 'Click to Verify'}
