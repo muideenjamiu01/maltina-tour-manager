@@ -47,7 +47,7 @@ export default function HowToVote() {
 
       {/* Content */}
       <div className="relative z-20 max-w-6xl mx-auto px-6 pt-9 pb-24 text-white">
-        <h1 className="font-Lilita_One relative z-10 flex flex-col items-center text-center text-5xl md:text-7xl drop-shadow-md">
+        <h1 className="font-['Lilita_One'] relative z-10 flex flex-col items-center text-center text-5xl md:text-7xl drop-shadow-md">
           How Voting Works
         </h1>
 
@@ -99,14 +99,14 @@ export default function HowToVote() {
   <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-10">
     <div className="max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl text-black">
       <h4 className="font-bold mb-3 text-2xl">Voting Rules</h4>
+<ul className="list-disc pl-5 space-y-3 text-xl">
+  <li>One vote per person across all zones</li>
+  <li>6 winners will be selected – one from each geo-political zone</li>
+  <li>Voting opens: [Start Date] and closes: [End Date]</li>
+  <li>Winners will be announced on: [Announcement Date]</li>
+  <li>All votes are final and cannot be changed once submitted</li>
+</ul>
 
-      <ul className="list-disc list-inside space-y-3 text-xl">
-        <li>One vote per person across all zones</li>
-        <li>6 winners will be selected – one from each geo-political zone</li>
-        <li>Voting opens: [Start Date] and closes: [End Date]</li>
-        <li>Winners will be announced on: [Announcement Date]</li>
-        <li>All votes are final and cannot be changed once submitted</li>
-      </ul>
     </div>
   </div>
 </div>

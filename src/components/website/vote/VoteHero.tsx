@@ -25,7 +25,7 @@ const fadeUp: Variants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: "easeOut",
+      ease: "easeOut", // ✅ safest option
     },
   },
 };
@@ -81,7 +81,7 @@ const fadeUp: Variants = {
                   font-['Lilita_One']
                   text-black
                   text-base max-sm:text-lg sm:text-base md:text-lg lg:text-3xl
-                  max-w-[300px] sm:max-w-[430px]
+                  max-w-[300px] sm:max-w-[430px] lg:max-w-[500px] xl:max-w-[800px
                   leading-tight
                   mb-1
                   pt-2

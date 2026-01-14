@@ -1,4 +1,4 @@
-import ConfirmVoteSection from "@/components/website/ConfirmVote"
+import ConfirmVoteSection from "@/components/website/vote/ConfirmVote"
 import Image from "next/image"
 
 export default function BeforeConfirming() {

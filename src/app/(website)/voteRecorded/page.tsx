@@ -1,5 +1,5 @@
 
-import VoteRecordedSection from "@/components/website/VoteRecorded"
+import VoteRecordedSection from "@/components/website/vote/VoteRecorded"
 import Image from "next/image"
 
 
