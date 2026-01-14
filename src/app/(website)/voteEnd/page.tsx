@@ -1,7 +1,7 @@
 import Navbar from "@/components/website/layout/navbar"
 import Footer from "@/components/website/layout/footer"
 import Image from "next/image"
-import VotingEnded from "@/components/website/VotingEnded"
+import VotingEnded from "@/components/website/vote/VotingEnded"
 
 export default function VoteEnd() {
   return (

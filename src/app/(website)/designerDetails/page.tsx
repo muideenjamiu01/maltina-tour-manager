@@ -1,7 +1,7 @@
 import Navbar from "@/components/website/layout/navbar"
 import Footer from "@/components/website/layout/footer"
 import Image from "next/image"
-import DesignerDetailCard from "@/components/website/DesignerDetailCard"
+import DesignerDetailCard from "@/components/website/vote/DesignerDetailCard"
 
 export default function DesignerDetail() {
   return (

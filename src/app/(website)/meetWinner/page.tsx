@@ -1,6 +1,6 @@
 import Navbar from "@/components/website/layout/navbar"
 import Footer from "@/components/website/layout/footer"
-import MeetWinner from "@/components/website/MeetWinner"
+import MeetWinner from "@/components/website/vote/MeetWinner"
 import Image from "next/image"
 
 

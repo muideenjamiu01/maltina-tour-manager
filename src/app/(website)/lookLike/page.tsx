@@ -1,6 +1,6 @@
 import Navbar from "@/components/website/layout/navbar"
 import Footer from "@/components/website/layout/footer"
-import AlreadyVoted from "@/components/website/AlreadyVoted"
+import AlreadyVoted from "@/components/website/vote/AlreadyVoted"
 import Image from "next/image"
 
 
