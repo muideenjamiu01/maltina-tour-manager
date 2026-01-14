@@ -1,6 +1,5 @@
 "use client"
-import Navbar from "@/components/website/layout/navbar"
-import Footer from "@/components/website/layout/footer"
+
 
 import Image from "next/image"
 
@@ -11,49 +10,35 @@ import VoteFilters from "@/components/website/vote/VoteFilters."
 import VoteGrid from "@/components/website/vote/VoteGrid"
 import VotingRules from "@/components/website/vote/VotingRules"
 
-const designs = [
-  {
-    id: 1,
-    name: "Student 1",
-    category: "Primary",
-    zone: "North",
-    votes: 120,
-    date: "2024-01-12",
-  },
-  {
-    id: 2,
-    name: "Student 2",
-    category: "Secondary",
-    zone: "South",
-    votes: 80,
-    date: "2024-01-20",
-  },
-  {
-    id: 3,
-    name: "Student 3",
-    category: "Primary",
-    zone: "South-West",
-    votes: 80,
-    date: "2024-01-20",
-  },
-  {
-    id: 4,
-    name: "Student 4",
-    category: "Secondary",
-    zone: "East",
-    votes: 80,
-    date: "2024-01-20",
-  },
-  {
-    id: 5,
-    name: "Student 5",
-    category: "Secondary",
-    zone: "East",
-    votes: 80,
-    date: "2024-01-20",
-  },
- 
-]
+
+// Define the Design type exactly once
+export type Design = {
+  id: number;
+  name: string;
+  category: string;
+  zone: string;
+  votes: number;
+  date: string;
+  image: string; // required to match VoteGrid
+};
+
+// Sample designs data
+const designs: Design[] = [
+  { id: 1, name: "Student 1", category: "Primary", zone: "North", votes: 120, date: "2024-01-12", image: "/assets/aboy_.png" },
+  { id: 2, name: "Student 2", category: "Secondary", zone: "South", votes: 80, date: "2024-01-20", image: "/assets/aboy_.png" },
+  { id: 3, name: "Student 3", category: "Primary", zone: "South-West", votes: 80, date: "2024-01-20", image: "/assets/aboy_.png" },
+  { id: 4, name: "Student 4", category: "Secondary", zone: "East", votes: 80, date: "2024-01-20", image: "/assets/aboy_.png" },
+  { id: 5, name: "Student 5", category: "Secondary", zone: "East", votes: 80, date: "2024-01-20", image: "/assets/aboy_.png" },
+];
+
+// Filters type
+type Filters = {
+  category: string;
+  zone: string;
+  sort: string;
+  time: string;
+};
+
 
 
 export default function VoteForFavorite() {
@@ -122,3 +107,4 @@ export default function VoteForFavorite() {
     </div>
   )
 }
+

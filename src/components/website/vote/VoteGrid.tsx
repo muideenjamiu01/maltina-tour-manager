@@ -1,7 +1,20 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export default function VoteGrid({ designs }) {
+
+type Design = {
+  id: number;
+  name: string;
+  image: string;
+  category?: string; // optional
+  zone?: string;     // 
+  votes: number;
+};
+
+type DesignsProps = {
+  designs: Design[]; // array of Design objects
+};
+export default function VoteGrid({ designs } : DesignsProps) {
   if (!designs || designs.length === 0) {
     return (
       <section className="py-10">
@@ -23,7 +36,7 @@ export default function VoteGrid({ designs }) {
           >
             <div className="bg-white shadow hover:shadow-lg transition rounded-lg overflow-hidden cursor-pointer">
               <Image
-                src={design.image || "/assets/sampleperson.png"}
+                src={design.image || "/assets/aboy_.png"}
                 alt={design.name}
                 width={400}
                 height={250}

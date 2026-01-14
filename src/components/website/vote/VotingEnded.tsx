@@ -119,7 +119,7 @@ export default function VotingEnded() {
     Browse All Finalist Design
   </button>
 
-  <button className="bg-gray-200 border border-white text-black font-semibold px-6 py-3 sm:px-4 sm:py-2 rounded-lg hover:bg-white/10 transition text-center mx-auto sm:mx-0">
+  <button className="bg-gray-200 border border-white text-black font-semibold px-6 py-3 sm:px-4 sm:py-4 rounded-lg hover:bg-white/10 transition text-center mx-auto sm:mx-0">
     Track the Tour
   </button>
 
