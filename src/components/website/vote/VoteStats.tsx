@@ -10,7 +10,8 @@ const stats = [
 export default function VoteStats() {
   return (
     <section className="py-10">
-      <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-4 gap-6">
+     <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
         {stats.map((stat, i) => (
           <div
             key={i}
