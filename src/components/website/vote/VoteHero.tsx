@@ -59,7 +59,7 @@ const fadeUp: Variants = {
             <div className="w-full pt-15 max-sm:pt-6">
               <motion.h1
                 className="
-                  font-['Lilita_One']
+                  font-lilita
                   text-black
                   text-3xl max-sm:text-4xl sm:text-3xl md:text-7xl lg:text-5xl
 
