@@ -202,7 +202,7 @@ export default function Step2FindSchool({ formData, updateFormData, onNext, onBa
                       onClick={() => handleSelectSchool(school)}
                       variant="outline"
                       className={`ml-4 ${selectedSchoolId === school.id
-                        ? 'bg-[#F5A623] text-white border-[#F5A623]'
+                        ? 'bg-orange text-white border-[#F5A623]'
                         : 'bg-white text-gray-900 border-gray-300'
                         }`}
                     >
