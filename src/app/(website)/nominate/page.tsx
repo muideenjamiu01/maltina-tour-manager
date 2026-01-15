@@ -24,7 +24,6 @@ export default function NominateSchoolPage() {
   const [formData, setFormData] = useState<Partial<NominationFormData>>({
     verified: false,
   });
-
   const updateFormData = (data: Partial<NominationFormData>) => {
     setFormData((prev) => ({ ...prev, ...data }));
     if (data.manualEntry !== undefined) {

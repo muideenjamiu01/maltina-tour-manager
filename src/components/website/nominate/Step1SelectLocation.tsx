@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { nigerianStates } from '@/data/nomination-mock-data';
+import { Check, CheckCheckIcon, CheckCircle } from 'lucide-react';
 
 interface Step1Props {
   formData: Partial<NominationFormData>;
@@ -55,7 +56,7 @@ export default function Step1SelectLocation({ formData, updateFormData, onNext, 
     >
       <div className="breakpoint">
         {/* Progress Bar */}
-        <div className="text-center space-y-2 mb-6">
+        <div className="text-center md:w-1/2 mx-auto space-y-2 mb-6">
           <div className="flex justify-between text-sm md:text-base text-gray-900 font-semibold">
             <span>Step 1 of 5</span>
             <span>20% Complete</span>
@@ -115,21 +116,29 @@ export default function Step1SelectLocation({ formData, updateFormData, onNext, 
                 type="button"
                 onClick={() => setValue('schoolType', 'Primary', { shouldValidate: true })}
                 className={`py-4 px-6 rounded-lg text-base font-semibold transition-all ${schoolType === 'Primary'
-                  ? 'bg-white text-gray-900 shadow-lg'
+                  ? 'bg-white border-2 flex items-center justify-center gap-2 border-[#ff9e16] text-[#ff9e16] shadow-lg'
                   : 'bg-white/80 text-gray-700 hover:bg-white'
                   }`}
               >
-                Primary School
+                Primary School {
+                  schoolType === 'Primary' && (
+                    <CheckCircle className="w-4 h-4 text-[#ff9e16]" />
+                  )
+                }
               </button>
               <button
                 type="button"
                 onClick={() => setValue('schoolType', 'Secondary', { shouldValidate: true })}
                 className={`py-4 px-6 rounded-lg text-base font-semibold transition-all ${schoolType === 'Secondary'
-                  ? 'bg-white text-gray-900 shadow-lg'
+                  ? 'bg-white border-2 flex items-center justify-center gap-2 border-[#ff9e16] text-[#ff9e16] shadow-lg'
                   : 'bg-white/80 text-gray-700 hover:bg-white'
                   }`}
               >
-                Secondary School
+                Secondary School {
+                  schoolType === 'Secondary' && (
+                    <CheckCircle className="w-4 h-4 text-[#ff9e16]" />
+                  )
+                }
               </button>
             </div>
             {errors.schoolType && (
