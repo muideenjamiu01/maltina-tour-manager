@@ -24,7 +24,7 @@ export default function NominateThankYouPage() {
         backgroundImage: "url('/images/websites/nominate/background.png')",
       }}
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto py-6">
         {/* Header */}
         <div className="text-center mb-12 pt-10">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white font-lilita mb-4 drop-shadow-md">
