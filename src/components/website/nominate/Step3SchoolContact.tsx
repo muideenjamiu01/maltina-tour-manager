@@ -52,9 +52,9 @@ export default function Step3SchoolContact({
                 backgroundImage: "url('/images/websites/nominate/step-3.png')",
             }}
         >
-            <div className="max-w-3xl mx-auto px-4">
+            <div className="max-w-3xl breakpoint mx-auto">
                 {/* Progress Bar */}
-                <div className="text-center space-y-2 mb-6">
+                <div className="text-center md:w-1/2 mx-auto space-y-2 mb-6">
                     <div className="flex justify-between text-sm md:text-base text-gray-900 font-semibold">
                         <span>Step 3 of 5</span>
                         <span>60% Complete</span>
@@ -75,7 +75,7 @@ export default function Step3SchoolContact({
                     <p className="text-lg font-medium text-gray-900">Step 3 of 5 – Tell us about the school</p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6 md:w-2/3 mx-auto">
                     <div>
                         <h2 className="text-2xl font-bold text-gray-900">School Head Contact Details</h2>
                     </div>

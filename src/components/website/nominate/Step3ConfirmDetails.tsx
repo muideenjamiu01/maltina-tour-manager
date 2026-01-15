@@ -86,9 +86,9 @@ export default function Step3ConfirmDetails({ formData, updateFormData, onSubmit
         backgroundImage: "url('/images/websites/nominate/review.png')",
       }}
     >
-      <div className="max-w-3xl mx-auto">
+      <div className="breakpoint mx-auto">
         {/* Progress Bar */}
-        <div className="text-center space-y-2 mb-6">
+        <div className="text-center md:w-1/2 mx-auto space-y-2 mb-6">
           <div className="flex justify-between text-sm md:text-base text-gray-900 font-semibold">
             <span>Step 3 of 3</span>
             <span>100% Complete</span>
