@@ -76,7 +76,7 @@ export default function DesignerDetailCard({
         {/* RIGHT CONTENT */}
         <div>
              <h1 className="text-4xl font-semibold mb-2 ">
-            Design by Blessing N
+            Design by {name}
           </h1>
           <h3 className="text-2xl font-semibold mb-1">
             Student Information
