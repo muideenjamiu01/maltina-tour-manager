@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const steps = [
   {
@@ -47,10 +48,18 @@ export default function HowToVote() {
 
       {/* Content */}
       <div className="relative z-20 max-w-6xl mx-auto px-6 pt-9 pb-24 text-white">
-        <h1 className="font-['Lilita_One'] relative z-10 flex flex-col items-center text-center text-5xl md:text-7xl drop-shadow-md">
-          How Voting Works
-        </h1>
-
+       <motion.h1
+  className="font-['Lilita_One'] relative z-10 flex flex-col items-center text-center text-5xl md:text-7xl drop-shadow-md"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{
+    duration: 0.8,
+    ease: "easeOut",
+  }}
+  viewport={{ once: true }}
+>
+  How Voting Works
+</motion.h1>
 
         {/* Steps */}
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-20">
@@ -117,7 +126,7 @@ export default function HowToVote() {
         {/* CTA */}
      <div className="mt-10 flex justify-center">
   <Link
-    href="/voteforFavourite"
+    href="/vote/voteforFavourite"
     className="inline-block bg-white text-black font-semibold px-8 py-3 rounded-full shadow-md hover:bg-orange-100 transition"
   >
     View all 18 finalists
