@@ -1,20 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { fetchDesigns, submitVote } from '@/lib/api/vote'
 
 export default function VoteConfirm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const id = searchParams?.get('id') ? Number(searchParams.get('id')) : undefined
 
   // Form state
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [errors, setErrors] = useState({ email: "", mobile: "" });
+  const [design, setDesign] = useState<any | null>(null)
+
+  useEffect(() => {
+    if (!id) return
+    fetchDesigns().then((list) => {
+      const found = list.find((d) => d.id === id)
+      setDesign(found || null)
+    })
+  }, [id])
 
   // Handle vote confirmation
-  const handleConfirmVote = () => {
+  const handleConfirmVote = async () => {
     let valid = true;
     const newErrors = { email: "", mobile: "" };
 
@@ -39,8 +51,13 @@ export default function VoteConfirm() {
     setErrors(newErrors);
 
     if (valid) {
+      try {
+        await submitVote({ id: id as number, email, mobile })
+      } catch (err) {
+        console.error('Submit vote failed', err)
+      }
       // Navigate to next page
-      router.push(`/beforeConfirming?email=${email}&mobile=${mobile}`);
+      router.push(`/beforeConfirming?email=${email}&mobile=${mobile}&id=${id}`);
     }
   };
 
@@ -58,37 +75,43 @@ export default function VoteConfirm() {
       <div className="relative z-10 flex flex-col min-h-screen">
         <main className="flex-1 px-4 py-20">
           {/* LEFT SIDE */}
-          <div className="space-y-2 text-black max-w-md mx-6 md:mx-20 mt-6 ml-6 mb-4">
+          <div className="space-y-2 text-black max-w-md mx-6 md:mx-20 mt-6 ml-15 mb-4">
             {/* Back Link */}
             <Link
-              href="/vioteforFavourite"
-              className="inline-flex items-center gap-2 text-black text-sm font-medium px-2 py-1 rounded-md"
+              href="/vote/voteforFavourite"
+              className="inline-flex items-center gap-2 text-black text-sm font-medium px-2 py-3 rounded-md"
             >
               ← Back to all Finalists
             </Link>
 
             <div className="ml-5">
-              <div>
-                <p className="inline-block border-2 border-orange-400 text-black px-2 py-1 rounded text-sm">
-                  South West
-                </p>
-                <p className="inline-block ml-2 text-sm">Lagos</p>
-              </div>
+              {design ? (
+                <>
+                  <div>
+                    <p className="inline-block border-2 border-orange-400 text-black px-2 py-1 rounded text-sm">
+                      {design.zone}
+                    </p>
+                    <p className="inline-block ml-2 text-sm">{design.location}</p>
+                  </div>
 
-              <p className="text-md font-medium">Aisha. K</p>
+                  <p className="text-md font-medium">{design.name}</p>
 
-              <p className="text-xs text-black">
-                Age 12 • Female • JSS 2 • Government Primary School Ikeja
-              </p>
+                  <p className="text-xs text-black">
+                    Age {design.age} • {design.grade} • {design.school}
+                  </p>
+                </>
+              ) : (
+                <p>Loading designer...</p>
+              )}
             </div>
           </div>
 
           {/* Main Content */}
           <div className="max-w-md mx-auto text-center space-y-6 pt-5">
             {/* Designer Image */}
-            <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+            <div className="relative w-full aspect-[5/4] rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/assets/sampleperson.png"
+                src={design?.image || "/assets/sampleperson.png"}
                 alt="Designer"
                 fill
                 className="object-cover"
@@ -98,7 +121,7 @@ export default function VoteConfirm() {
             {/* Design Image */}
             <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/assets/sampleperson.png"
+                src={design?.image || "/assets/sampleperson.png"}
                 alt="Design artwork"
                 fill
                 className="object-cover"
@@ -109,8 +132,7 @@ export default function VoteConfirm() {
             <div className="bg-white/90 rounded-lg p-4 text-left shadow-md">
               <h3 className="font-semibold text-sm text-gray-800">Design Story</h3>
               <p className="text-sm text-gray-600 mt-1 leading-relaxed">
-                This design represents creativity, culture, and imagination inspired
-                by everyday life and the joy of childhood.
+                {design?.story || 'This design represents creativity, culture, and imagination inspired by everyday life.'}
               </p>
             </div>
 

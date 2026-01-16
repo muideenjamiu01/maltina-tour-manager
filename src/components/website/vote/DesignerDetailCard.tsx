@@ -4,12 +4,13 @@ import Link from "next/link"
 interface DesignerDetailCardProps {
   image: string
   name: string
-  school: string
-  zone: string
-  location: string
-  dateSubmitted: string
-  description: string
+  school?: string
+  zone?: string
+  location?: string
+  dateSubmitted?: string
+  description?: string
   votes: number
+  id?: number
 }
 
 export default function DesignerDetailCard({
@@ -21,13 +22,14 @@ export default function DesignerDetailCard({
   dateSubmitted,
   description,
   votes,
+  id,
 }: DesignerDetailCardProps) {
   return (
     <div className="w-full">
 
       {/* BACK BUTTON */}
       <Link
-        href="/voteforFavourite"
+        href="/vote/voteforFavourite"
         className="inline-flex items-center gap-2 mb-6 bg-gray-200 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-300"
       >
         ← Back to all Finalists
@@ -55,7 +57,7 @@ export default function DesignerDetailCard({
               {name}
             </h3>
             <p className="text-sm text-gray-600">
-              {school}
+              {school || '—'}
             </p>
             <p className="text-sm text-gray-500">
               Zone: {zone}
@@ -94,7 +96,7 @@ export default function DesignerDetailCard({
             <div>
               <div className="flex justify-between">
                 <span className="text-black">School</span>
-                <span className="font-medium">{school}</span>
+                <span className="font-medium">{school || '—'}</span>
               </div>
               <div className="h-[2px] bg-orange-500 " />
             </div>
@@ -102,7 +104,7 @@ export default function DesignerDetailCard({
             <div>
               <div className="flex justify-between">
                 <span className="text-black">Location</span>
-                <span className="font-medium">{location}</span>
+                <span className="font-medium">{location || '—'}</span>
               </div>
               <div className="h-[2px] bg-orange-500 " />
             </div>
@@ -110,7 +112,7 @@ export default function DesignerDetailCard({
             <div>
               <div className="flex justify-between">
                 <span className="text-black">Zone</span>
-                <span className="font-medium">{zone}</span>
+                <span className="font-medium">{zone || '—'}</span>
               </div>
               <div className="h-[2px] bg-orange-500 " />
             </div>
@@ -118,7 +120,7 @@ export default function DesignerDetailCard({
             <div>
               <div className="flex justify-between">
                 <span className="text-black">Date Submitted</span>
-                <span className="font-medium">{dateSubmitted}</span>
+                <span className="font-medium">{dateSubmitted || '—'}</span>
               </div>
               <div className="h-[2px] bg-orange-500 mb-4" />
             </div>
@@ -131,7 +133,7 @@ export default function DesignerDetailCard({
               Design Description
             </h3>
             <p className="text-sm text-black leading-relaxed">
-              {description}
+              {description || 'No description provided.'}
             </p>
           </div>
 
@@ -146,7 +148,7 @@ export default function DesignerDetailCard({
   </span>
             </p>
             
-<Link href="/voteConfirm" passHref>
+<Link href={id ? `/vote/voteConfirm?id=${id}` : '/vote/voteConfirm'} passHref>
   <button className="bg-gray-200 transition text-black px-8 py-3 rounded-md hover:bg-gray-300">
     Vote for this Design
   </button>

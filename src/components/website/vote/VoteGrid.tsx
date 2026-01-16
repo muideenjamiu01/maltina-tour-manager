@@ -1,19 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
-
-
-type Design = {
-  id: number;
-  name: string;
-  image: string;
-  category?: string; // optional
-  zone?: string;     // 
-  votes: number;
-};
+import { Design } from '@/types/vote.types'
 
 type DesignsProps = {
   designs: Design[]; // array of Design objects
 };
+
 export default function VoteGrid({ designs } : DesignsProps) {
   if (!designs || designs.length === 0) {
     return (
@@ -31,7 +23,7 @@ export default function VoteGrid({ designs } : DesignsProps) {
         {designs.map((design) => (
           <Link
             key={design.id}
-            href={`/designerDetails`}
+            href={`/vote/designerDetails?id=${design.id}`}
             className="block"
           >
             <div className="bg-white shadow hover:shadow-lg transition rounded-lg overflow-hidden cursor-pointer">
@@ -58,7 +50,7 @@ export default function VoteGrid({ designs } : DesignsProps) {
 
                 <div className="flex justify-end mt-4">
                   <Link
-                    href={`/voteConfirm`}
+                    href={`/vote/voteConfirm?id=${design.id}`}
                     onClick={(e) => e.stopPropagation()}
                   >
                     <button className="border border-orange-400 px-3 py-1 rounded-md transition hover:bg-orange-400 hover:text-white">

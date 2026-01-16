@@ -104,7 +104,7 @@ export default function ConfirmVoteSection() {
         {/* Action Buttons */}
 <div className="mt-8 flex flex-col sm:flex-row gap-4 items-center">
   <button
-    onClick={() => router.push("/voteRecorded")}
+    onClick={() => router.push("/vote/voteRecorded")}
     className="rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-black shadow hover:bg-gray-200"
   >
     Confirm My Vote
