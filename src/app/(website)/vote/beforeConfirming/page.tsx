@@ -6,7 +6,7 @@ export default function BeforeConfirming() {
     <div className="relative min-h-screen w-full overflow-hidden">
       {/* Background image */}
       <Image
-        src="/assets/background.png"
+        src="/images/websites/vote/background.png"
         alt="Vote background"
         fill
         priority
