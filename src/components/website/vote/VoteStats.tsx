@@ -68,7 +68,7 @@ export default function VoteStats() {
           >
             {/* Background Image */}
             <Image
-              src="/assets/Stepsbg.png"
+              src="/images/websites/vote/Stepsbg.png"
               alt="Stats background"
               fill
               priority
