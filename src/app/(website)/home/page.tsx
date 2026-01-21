@@ -43,7 +43,7 @@ const page = () => {
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
-    const lenis = new Lenis({ smoothWheel: true, duration: 0.2, wheelMultiplier: 1 });
+    const lenis = new Lenis({ duration: 0, smoothWheel: false });
 
     function raf(time: number) {
       lenis.raf(time);
