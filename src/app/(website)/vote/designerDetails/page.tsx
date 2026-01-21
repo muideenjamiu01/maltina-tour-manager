@@ -28,7 +28,7 @@ export default async function DesignerDetail({ searchParams }: Props) {
   return (
     <div className="relative min-h-screen">
       <Image
-        src="/assets/background.png"
+        src="/images/websites/vote/background.png"
         alt="Vote background"
         fill
         priority
@@ -40,7 +40,7 @@ export default async function DesignerDetail({ searchParams }: Props) {
             {design ? (
               <DesignerDetailCard
                 id={design.id}
-                image={design.image}
+                images={[design.image]}
                 name={design.name}
                 school={design.school}
                 zone={design.zone}

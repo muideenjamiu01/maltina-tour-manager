@@ -10,7 +10,7 @@ export default function MeettheWinners() {
              
            
              <Image
-               src="/assets/background.png"
+               src="/images/websites/vote/background.png"
                alt="Vote background"
                fill
                priority

@@ -39,6 +39,8 @@ export default function VoteFilters({ filters, setFilters }: VoteFiltersProps) {
               <option value="All">All Zones</option>
               <option value="North">North</option>
               <option value="South">South</option>
+               <option value="West">West</option>
+              <option value="East">East</option>
             </select>
           </div>
         </div>

@@ -52,6 +52,7 @@
     "embla-carousel-react": "^8.6.0",
     "formik": "^2.4.9",
     "framer-motion": "^12.26.2",
+    "jspdf": "^4.0.0",
     "lucide-react": "^0.562.0",
     "next": "16.1.0",
     "react": "19.2.3",
