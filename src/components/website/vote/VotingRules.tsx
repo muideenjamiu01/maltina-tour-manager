@@ -15,6 +15,13 @@ export default function VotingRules() {
           <li>The winning design will be featured on limited edition Maltina lunch bags</li>
         </ul>
       </div>
+
+     
+     {/* <div className="flex justify-center mt-6">
+        <button className="px-10 py-5 rounded-full bg-gray-200 text-gray-700 px-4 py-2 text-primary font-bold ">
+          Vote now
+        </button>
+      </div> */}
     </section>
   )
 }

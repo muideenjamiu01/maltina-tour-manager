@@ -104,7 +104,7 @@ export default function HowToVote() {
        {/* Countdown Timer Section */}
       <section className="bg-white/10 backdrop-blur-sm border-b border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h2 className=" font-['Lilita_One']  text-center text-2xl sm:text-3xl text-white mb-6 drop-shadow-md">
+          <h2 className=" font-lilita  text-center text-2xl sm:text-3xl text-white mb-6 drop-shadow-md">
             Voting Ends In
           </h2>
           <CountdownTimer />
@@ -114,7 +114,7 @@ export default function HowToVote() {
       {/* Content */}
       <div className="relative z-20 max-w-6xl mx-auto px-6 pt-9 pb-24 text-white">
         <motion.h1
-          className="font-['Lilita_One'] relative z-10 flex flex-col items-center text-center text-5xl md:text-7xl drop-shadow-md"
+          className="font-lilita relative z-10 flex flex-col items-center text-center text-5xl md:text-7xl drop-shadow-md"
           initial="hidden"
           whileInView="visible"
           variants={fadeInUp}
@@ -147,12 +147,12 @@ export default function HowToVote() {
 
                 {/* Step content */}
                 <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center pt-10">
-                  <span className="absolute top-1 -mt-3 font-['Lilita_One'] text-8xl leading-none drop-shadow-md">
+                  <span className="absolute top-1 -mt-3 font-lilita text-8xl leading-none drop-shadow-md">
                     {step.number}
                   </span>
 
                   <div className="max-w-[170px]">
-                    <h3 className="font-['Poppins'] mt-3 font-bold text-2xl leading-none">
+                    <h3 className="font-Poppins mt-3 font-bold text-2xl leading-none">
                       {step.title}
                     </h3>
 

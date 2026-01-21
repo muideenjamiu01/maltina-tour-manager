@@ -52,6 +52,30 @@ const cloudVariants: Variants = {
     },
   },
 };
+const walkAndFloat: Variants = {
+  hidden: {
+    opacity: 0,
+    x: 80,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      opacity: { duration: 0.6 },
+      x: { duration: 1.2, ease: "easeOut" },
+    },
+  },
+  float: {
+    y: [0, -10, 0],
+    x: [0, -8, 0],
+    transition: {
+      duration: 5,
+      ease: "easeInOut",
+      repeat: Infinity,
+    },
+  },
+};
+
 
 
 
@@ -119,7 +143,7 @@ const walkIn: Variants = {
         </motion.div>
 
                 
-     <motion.div
+   <motion.div
   className="
     absolute
     top-[15%]
@@ -130,9 +154,9 @@ const walkIn: Variants = {
     lg:w-[220px] lg:h-[220px]
     pointer-events-none
   "
-  variants={walkIn}
+  variants={walkAndFloat}
   initial="hidden"
-  animate="visible"
+  animate={["visible", "float"]}
 >
   <Image
     src="/images/websites/vote/smfunnel.png"
@@ -141,6 +165,7 @@ const walkIn: Variants = {
     className="object-contain"
   />
 </motion.div>
+
 
 
 <motion.div
@@ -277,7 +302,7 @@ md:w-[900px] lg:w-[860px] xl:w-[1000px] 2xl:w-[1150px] z-[5] pointer-events-none
 
               <motion.p
                 className="
-                  font-['Lilita_One']
+                  font-lilita
                   text-black
                   text-base max-sm:text-lg sm:text-base md:text-lg lg:text-3xl
                   max-w-[300px] sm:max-w-[430px] lg:max-w-[500px] xl:max-w-[800px

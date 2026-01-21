@@ -57,39 +57,40 @@ export default function VoteForFavorite() {
   }, [filters, designs]);
 
   return (
-    <div className="relative min-h-screen pt-20 w-full overflow-hidden">
-      <div className="absolute inset-0 -z-10 w-full h-full">
-        <Image
-          src="/images/websites/vote/background.png"
-          alt="Vote background"
-          fill
-          priority
-          className="object-cover w-full h-full"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-white/80" />
-      </div>
+     <div className="relative min-h-screen pt-20 w-full overflow-hidden">
 
-      <div className="relative z-10 space-y-2">
-        <VoteHero />
-        <VoteStats />
-        <VotingRules />
-        <VoteFilters filters={filters} setFilters={setFilters} />
+    {/* Background Image */}
+    <Image
+      src="/images/websites/vote/background.png"
+      alt="Background"
+      fill
+      priority
+      className="object-cover "
+    />
 
-        {error && (
-          <div className="py-10 text-center text-red-500">
-            {error}
-          </div>
-        )}
+ 
 
-        {loading ? (
-          <div className="flex items-center justify-center py-20">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-          </div>
-        ) : (
-          <VoteGrid designs={filteredDesigns} />
-        )}
-      </div>
+    {/* Page Content */}
+    <div className="relative z-10 space-y-2">
+      <VoteHero />
+      <VoteStats />
+      <VotingRules />
+      <VoteFilters filters={filters} setFilters={setFilters} />
+
+      {error && (
+        <div className="py-10 text-center text-red-500">
+          {error}
+        </div>
+      )}
+
+      {loading ? (
+        <div className="flex items-center justify-center py-20">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+        </div>
+      ) : (
+        <VoteGrid designs={filteredDesigns} />
+      )}
     </div>
-  );
+  </div>
+)
 }

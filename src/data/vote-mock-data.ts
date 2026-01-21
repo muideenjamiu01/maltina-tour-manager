@@ -9,6 +9,11 @@ export const voteDesigns: Design[] = [
     votes: 120,
     date: '2024-01-12',
     image: '/images/websites/vote/sampleperson.png',
+    images: [
+      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/sampleperson3.png'
+    ],
     childImageUrl: '/images/websites/vote/aboy_.png',
     school: 'Government Primary School Ikeja',
     grade: 'JSS 2',
@@ -26,6 +31,11 @@ export const voteDesigns: Design[] = [
     votes: 80,
     date: '2024-01-20',
     image: '/images/websites/vote/sampleperson.png',
+    images: [
+      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/sampleperson3.png'
+    ],
     childImageUrl: '/images/websites/vote/aboy_.png',
     school: 'St. Mary Secondary',
     grade: 'SS 1',
@@ -43,6 +53,11 @@ export const voteDesigns: Design[] = [
     votes: 80,
     date: '2024-01-20',
     image: '/images/websites/vote/sampleperson.png',
+    images: [
+      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/sampleperson3.png'
+    ],
     childImageUrl: '/images/websites/vote/aboy_.png',
     school: 'Northside Primary School',
     grade: 'P6',
@@ -59,6 +74,11 @@ export const voteDesigns: Design[] = [
     votes: 80,
     date: '2024-01-20',
     image: '/images/websites/vote/sampleperson.png',
+    images: [
+      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/sampleperson3.png'
+    ],
     childImageUrl: '/images/websites/vote/aboy_.png',
     school: 'Lagos High School',
     grade: 'SS 2',
@@ -75,6 +95,11 @@ export const voteDesigns: Design[] = [
     votes: 80,
     date: '2024-01-20',
     image: '/images/websites/vote/sampleperson.png',
+    images: [
+      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/sampleperson3.png'
+    ],
     childImageUrl: '/images/websites/vote/aboy_.png',
     school: 'Community Secondary School',
     grade: 'SS 1',

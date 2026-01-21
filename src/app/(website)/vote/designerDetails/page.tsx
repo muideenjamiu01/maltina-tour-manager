@@ -40,11 +40,13 @@ export default async function DesignerDetail({ searchParams }: Props) {
             {design ? (
               <DesignerDetailCard
                 id={design.id}
-                images={[design.image]}
+                image={[design.image]}
                 name={design.name}
                 school={design.school}
                 zone={design.zone}
+                images={design.images}
                 location={design.location}
+                childImageUrl={design.childImageUrl}
                 dateSubmitted={design.date}
                 description={design.story}
                 votes={design.votes}
