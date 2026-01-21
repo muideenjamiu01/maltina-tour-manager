@@ -11,6 +11,9 @@ export type Design = {
   age?: number;
   story?: string;
   location?: string;
+  childImageUrl?: string
+  summary?: string;
+
 };
 
 export type Filters = {

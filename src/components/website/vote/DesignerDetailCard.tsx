@@ -1,20 +1,27 @@
-import Image from "next/image"
-import Link from "next/link"
+'use client';
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import VoteModal from '@/components/website/vote/vote-modal';
 
 interface DesignerDetailCardProps {
-  image: string
-  name: string
-  school?: string
-  zone?: string
-  location?: string
-  dateSubmitted?: string
-  description?: string
-  votes: number
-  id?: number
+  images: string[];               // <-- updated to accept multiple images
+  childImageUrl?: string;         // <-- child thumbnail
+  name: string;
+  school?: string;
+  zone?: string;
+  location?: string;
+  dateSubmitted?: string;
+  description?: string;
+  votes: number;
+  id?: number;
 }
 
 export default function DesignerDetailCard({
-  image,
+  
+   images,
+  childImageUrl,
   name,
   school,
   zone,
@@ -24,12 +31,25 @@ export default function DesignerDetailCard({
   votes,
   id,
 }: DesignerDetailCardProps) {
+  const safeImages = images?.length ? images : ["/assets/sampleperson.png"];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [showVoteModal, setShowVoteModal] = useState(false);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? safeImages.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === safeImages.length - 1 ? 0 : prev + 1));
+  };
+
+
   return (
-    <div className="w-full">
+    <div className="w-full pt-10">
 
       {/* BACK BUTTON */}
       <Link
-        href="/vote/voteforFavourite"
+        href="/vote/finalist"
         className="inline-flex items-center gap-2 mb-6 bg-gray-200 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-300"
       >
         ← Back to all Finalists
@@ -39,18 +59,44 @@ export default function DesignerDetailCard({
       <div className="grid md:grid-cols-[340px_1fr] gap-10 items-start">
 
         {/* LEFT CARD */}
-        <div className="bg-white  shadow-lg overflow-hidden relative">
+        <div className="bg-white shadow-lg overflow-hidden relative">
 
-          {/* IMAGE (NO PADDING) */}
-          <div className="relative h-[300px] w-full">
+          {/* IMAGE CAROUSEL */}
+          <div className="relative h-[300px] w-full overflow-hidden">
             <Image
-              src={image}
-              alt={name}
+              src={safeImages[currentIndex]}
+              alt={`${name} - image ${currentIndex + 1}`}
               fill
               className="object-cover"
             />
-          </div>
 
+            {/* Child Thumbnail */}
+            {childImageUrl && (
+              <div className="absolute bottom-4 right-4 w-16 h-16 rounded-xl border-4 border-yellow-400 overflow-hidden shadow-lg">
+                <Image
+                  src={childImageUrl}
+                  alt="Child Thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
+
+            {/* Carousel Buttons */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md"
+            >
+              <ChevronLeft className="w-5 h-5 text-gray-800" />
+            </button>
+
+            <button
+              onClick={handleNext}
+              className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md"
+            >
+              <ChevronRight className="w-5 h-5 text-gray-800" />
+            </button>
+          </div>
           {/* DESIGNER INFO */}
           <div className="px-5 py-8">
             <h3 className="font-semibold text-gray-900">
@@ -69,13 +115,12 @@ export default function DesignerDetailCard({
             <button className="text-sm font-medium border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100">
               View & vote
             </button>
-           
           </div>
         </div>
 
         {/* RIGHT CONTENT */}
         <div>
-             <h1 className="text-4xl font-semibold mb-2 ">
+          <h1 className="text-4xl font-semibold mb-2">
             Design by {name}
           </h1>
           <h3 className="text-2xl font-semibold mb-1">
@@ -84,14 +129,18 @@ export default function DesignerDetailCard({
 
           {/* INFO ROWS */}
           <div className="space-y-5 text-sm">
-
             <div>
               <div className="flex justify-between">
                 <span className="text-black">Name</span>
                 <span>{name}</span>
               </div>
+
+
+
+              
               <div className="h-[2px] bg-orange-500 " />
             </div>
+            
 
             <div>
               <div className="flex justify-between">
@@ -124,14 +173,11 @@ export default function DesignerDetailCard({
               </div>
               <div className="h-[2px] bg-orange-500 mb-4" />
             </div>
-
           </div>
 
           {/* DESCRIPTION */}
           <div className="mb-1 max-w-2xl">
-            <h3 className="font-semibold">
-              Design Description
-            </h3>
+            <h3 className="font-semibold">Design Description</h3>
             <p className="text-sm text-black leading-relaxed">
               {description || 'No description provided.'}
             </p>
@@ -139,26 +185,29 @@ export default function DesignerDetailCard({
 
           {/* VOTING SECTION */}
           <div className="flex flex-col items-start gap-1">
-             <p className="text-md ">
-              Current Votes:
+            <p className="text-md">Current Votes:</p>
+            <p className="text-md">
+              {votes}{" "}
+              <span className="text-black italic ml-30">
+                You haven’t voted yet
+              </span>
             </p>
-            <p className="text-md ">
-               {votes}  <span className="text-black italic ml-30">
-    You haven’t voted yet
-  </span>
-            </p>
-            
-<Link href={id ? `/vote/voteConfirm?id=${id}` : '/vote/voteConfirm'} passHref>
-  <button className="bg-gray-200 transition text-black px-8 py-3 rounded-md hover:bg-gray-300">
-    Vote for this Design
-  </button>
-</Link>
 
-           
+           {/* <Link href={id ? `/vote/voteConfirm?id=${id}` : '/vote/voteConfirm'} passHref> /*/}
+              <button
+               onClick={() => setShowVoteModal(true)}
+              className="bg-gray-200 transition text-black px-8 py-3 rounded-md hover:bg-gray-300">
+                Vote for this Design
+              </button>
+        
           </div>
-
         </div>
       </div>
+
+      {/* Vote Modal */}
+      {showVoteModal && (
+        <VoteModal onClose={() => setShowVoteModal(false)} />
+      )}
     </div>
-  )
+  );
 }

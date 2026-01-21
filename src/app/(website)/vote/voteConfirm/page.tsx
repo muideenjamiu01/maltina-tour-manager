@@ -65,7 +65,7 @@ export default function VoteConfirm() {
     <div className="relative min-h-screen">
       {/* Background */}
       <Image
-        src="/assets/background.png"
+        src="/images/websites/vote/background.png"
         alt="Vote background"
         fill
         priority
@@ -78,7 +78,7 @@ export default function VoteConfirm() {
           <div className="space-y-2 text-black max-w-md mx-6 md:mx-20 mt-6 ml-15 mb-4">
             {/* Back Link */}
             <Link
-              href="/vote/voteforFavourite"
+              href="/vote/finalist"
               className="inline-flex items-center gap-2 text-black text-sm font-medium px-2 py-3 rounded-md"
             >
               ← Back to all Finalists

@@ -9,7 +9,7 @@ export default function VoteEnd() {
          
        
          <Image
-           src="/assets/background.png"
+           src="/images/websites/vote/background.png"
            alt="Vote background"
            fill
            priority
