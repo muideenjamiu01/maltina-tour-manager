@@ -83,7 +83,7 @@ export default function HowToVote() {
     <section className="relative w-full min-h-[40vh] overflow-hidden bg-[#f6a623]">
       {/* Background texture */}
       <Image
-        src="/assets/background.png"
+        src="/images/websites/vote/background.png"
         alt="Background"
         fill
         priority
@@ -93,7 +93,7 @@ export default function HowToVote() {
       {/* Maltina bottle – FIXED POSITION */}
       <div className="absolute bottom-[-700px] right-[-600px] z-10 hidden lg:block pointer-events-none">
         <Image
-          src="/assets/source_33cl.png"
+          src="/images/websites/vote/source_33cl.png"
           alt="Maltina Bottle"
           width={2000}
           height={1500}
@@ -138,7 +138,7 @@ export default function HowToVote() {
               <div className="relative w-[300px] h-[300px] ">
                 {/* Step background image */}
                 <Image
-                  src="/assets/Stepsbg.png"
+                  src="/images/websites/vote/Stepsbg.png"
                   alt="Step background"
                   fill
                   priority
