@@ -6,6 +6,7 @@ export type Design = {
   votes: number;
   date?: string;
   image: string;
+  images: string[];
   school?: string;
   grade?: string;
   age?: number;

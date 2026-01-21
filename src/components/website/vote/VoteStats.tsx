@@ -30,7 +30,7 @@ function AnimatedCounter({ value }: { value: number }) {
   return (
     <motion.span
       ref={ref}
-      className="font-['Lilita_One'] text-5xl md:text-6xl block leading-none drop-shadow"
+      className="font-lilita text-5xl md:text-6xl block leading-none drop-shadow"
     >
       {rounded}
     </motion.span>

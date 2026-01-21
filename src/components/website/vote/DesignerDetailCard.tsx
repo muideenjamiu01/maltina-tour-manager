@@ -6,7 +6,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import VoteModal from '@/components/website/vote/vote-modal';
 
 interface DesignerDetailCardProps {
-  images: string[];               // <-- updated to accept multiple images
+  images: string[];      
+  image: string[];         // <-- updated to accept multiple images
   childImageUrl?: string;         // <-- child thumbnail
   name: string;
   school?: string;
@@ -21,6 +22,7 @@ interface DesignerDetailCardProps {
 export default function DesignerDetailCard({
   
    images,
+  image,
   childImageUrl,
   name,
   school,
@@ -54,6 +56,11 @@ export default function DesignerDetailCard({
       >
         ← Back to all Finalists
       </Link>
+       <button
+               onClick={() => setShowVoteModal(true)}
+              className="bg-gray-200 transition text-black py-3 px-2  ml-2 rounded-md hover:bg-gray-300">
+                Vote Now
+              </button>
 
       {/* MAIN LAYOUT */}
       <div className="grid md:grid-cols-[340px_1fr] gap-10 items-start">
@@ -62,7 +69,7 @@ export default function DesignerDetailCard({
         <div className="bg-white shadow-lg overflow-hidden relative">
 
           {/* IMAGE CAROUSEL */}
-          <div className="relative h-[300px] w-full overflow-hidden">
+                   <div className="relative h-[300px] w-full overflow-hidden">
             <Image
               src={safeImages[currentIndex]}
               alt={`${name} - image ${currentIndex + 1}`}
@@ -70,28 +77,16 @@ export default function DesignerDetailCard({
               className="object-cover"
             />
 
-            {/* Child Thumbnail */}
-            {childImageUrl && (
-              <div className="absolute bottom-4 right-4 w-16 h-16 rounded-xl border-4 border-yellow-400 overflow-hidden shadow-lg">
-                <Image
-                  src={childImageUrl}
-                  alt="Child Thumbnail"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            )}
-
             {/* Carousel Buttons */}
             <button
-              onClick={handlePrev}
+              onClick={() => setCurrentIndex((prev) => (prev === 0 ? safeImages.length - 1 : prev - 1))}
               className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md"
             >
               <ChevronLeft className="w-5 h-5 text-gray-800" />
             </button>
 
             <button
-              onClick={handleNext}
+              onClick={() => setCurrentIndex((prev) => (prev === safeImages.length - 1 ? 0 : prev + 1))}
               className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md"
             >
               <ChevronRight className="w-5 h-5 text-gray-800" />
@@ -120,9 +115,27 @@ export default function DesignerDetailCard({
 
         {/* RIGHT CONTENT */}
         <div>
-          <h1 className="text-4xl font-semibold mb-2">
-            Design by {name}
-          </h1>
+           {/* Child image */}
+           <div className="flex items-center gap-4 mb-2">
+
+              {/* Title */}
+  <h1 className="text-4xl font-semibold">
+    Design by {name}
+  </h1>
+  {/* Child image */}
+  {childImageUrl && (
+    <div className="relative h-[80px] w-[80px] overflow-hidden">
+      <Image
+        src={childImageUrl}
+        alt="Child Image"
+        fill
+        className="object-cover"
+      />
+    </div>
+  )}
+
+ 
+</div>
           <h3 className="text-2xl font-semibold mb-1">
             Student Information
           </h3>

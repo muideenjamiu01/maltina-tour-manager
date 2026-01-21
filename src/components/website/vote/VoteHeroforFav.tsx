@@ -10,7 +10,7 @@ export default function VoteHero() {
       <div className="relative z-10 px-6 text-white">
         
         <motion.h1
-          className="font-['Lilita_One'] text-5xl sm:text-2xl md:text-6xl pt-9 mb-2 drop-shadow-md"
+          className="font-lilita text-5xl sm:text-2xl md:text-6xl pt-9 mb-2 drop-shadow-md"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
