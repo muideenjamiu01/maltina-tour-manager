@@ -42,8 +42,11 @@ export default function TrackTheTourPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F5A623] via-[#F9B850] to-[#FF8C42]">
-      <div className="container mx-auto px-4 py-8 md:py-12 mt-12 md:mt-24">
+      <div 
+      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/images/websites/track/track-the-tour.png)' }}
+    >
+      <div className="container mx-auto px-4 py-12 mt-12 md:mt-24">
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white font-lilita mb-4">
@@ -58,13 +61,13 @@ export default function TrackTheTourPage() {
         <TourMetricsCards metrics={metrics} />
 
         {/* Map */}
-        <div className="mb-8">
+        <div className="mb-8 max-w-6xl mx-auto">
           <TourMap schools={schools} />
         </div>
 
         {/* Region Tabs */}
         <RegionTabs
-          regions={regions}
+          regions={regions} 
           activeRegion={selectedRegion}
           onRegionChange={setSelectedRegion}
         />
