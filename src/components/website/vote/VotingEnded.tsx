@@ -1,6 +1,8 @@
 import { Check } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function VotingEnded() {
+  const router = useRouter();
   return (
     <main className="min-h-screen flex justify-center px-2 py-16">
    <section className="w-full max-w-6xl text-white"> 
@@ -151,7 +153,9 @@ export default function VotingEnded() {
 
 
 <div className="flex justify-center mt-10">
-  <button className="bg-gray-200 border border-white text-black font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-lg hover:bg-white/10 transition sm:w-auto text-center">
+  <button 
+   onClick={() => router.push("/vote")}
+  className="bg-gray-200 border border-white text-black font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-lg hover:bg-white/10 transition sm:w-auto text-center">
     Back to Home
   </button>
 </div>

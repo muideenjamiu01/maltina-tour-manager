@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 const winners = [
   {
     name: "Aisha K.",
@@ -45,6 +46,7 @@ const winners = [
 
 
 export default function MeetTheWinners() {
+   const router = useRouter();
   return (
     <main className=" py-20 px-6 text-center">
       {/* HERO */}
@@ -109,7 +111,9 @@ export default function MeetTheWinners() {
     Download winners pack (PDF)
   </button>
 
-  <button className="bg-gray-200 border-2 border-gray-200 text-black w-[70%] sm:w-auto px-9 py-6 rounded-md hover:bg-white hover:text-black transition">
+  <button 
+  onClick={() => router.push("/vote")}
+  className="bg-gray-200 border-2 border-gray-200 text-black w-[70%] sm:w-auto px-9 py-6 rounded-md hover:bg-white hover:text-black transition">
     View all finalists again
   </button>
 </section>
