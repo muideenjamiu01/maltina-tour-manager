@@ -61,7 +61,7 @@ export default function VotingEnded() {
   {/* Total Votes */}
   <div className="relative w-40 sm:w-auto aspect-[1/1] md:w-48 md:h-48 lg:w-52 lg:h-52">
     <img
-      src="/assets/stepsbg.png"
+      src="/images/websites/vote/Stepsbg.png"
       alt="Total Votes"
       className="w-full h-full object-cover rounded"
     />
@@ -78,7 +78,7 @@ export default function VotingEnded() {
   {/* Finalists */}
   <div className="relative w-40 sm:w-auto aspect-[1/1] md:w-48 md:h-48 lg:w-52 lg:h-52">
     <img
-      src="/assets/stepsbg.png"
+      src="/images/websites/vote/Stepsbg.png"
       alt="Finalists"
       className="w-full h-full object-cover rounded"
     />
@@ -95,7 +95,7 @@ export default function VotingEnded() {
   {/* Designs */}
   <div className="relative w-40 sm:w-auto aspect-[1/1] md:w-48 md:h-48 lg:w-52 lg:h-52">
     <img
-      src="/assets/stepsbg.png"
+      src="/images/websites/vote/Stepsbg.png"
       alt="Designs"
       className="w-full h-full object-cover rounded"
     />
