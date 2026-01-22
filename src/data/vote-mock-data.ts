@@ -11,7 +11,7 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/aboy_.png',
       '/images/websites/vote/aboy_.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
@@ -33,8 +33,8 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
-      '/images/websites/vote/sampleperson3.png'
+      '/images/websites/vote/aboy_.png.png',
+      '/images/websites/vote/aboy_.png.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
     school: 'St. Mary Secondary',
@@ -55,7 +55,7 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/aboy_.png.png',
       '/images/websites/vote/sampleperson3.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
@@ -76,7 +76,7 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/aboy_.png.png',
       '/images/websites/vote/sampleperson3.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
@@ -97,8 +97,8 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
-      '/images/websites/vote/sampleperson3.png'
+      '/images/websites/vote/aboy_.png.png',
+      '/images/websites/vote/aboy_.png.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
     school: 'Community Secondary School',
@@ -118,8 +118,8 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
-      '/images/websites/vote/sampleperson3.png'
+      '/images/websites/vote/aboy_.png.png',
+      '/images/websites/vote/sampleperson.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
     school: 'Community Secondary School',
@@ -139,7 +139,7 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/aboy_.png.png',
       '/images/websites/vote/sampleperson3.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
@@ -160,7 +160,7 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/aboy_.png',
       '/images/websites/vote/sampleperson3.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
@@ -181,8 +181,8 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
-      '/images/websites/vote/sampleperson3.png'
+      '/images/websites/vote/aboy_.png',
+      '/images/websites/vote/aboy_.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
     school: 'Community Secondary School',
@@ -202,7 +202,7 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/aboy_.png',
       '/images/websites/vote/sampleperson3.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
@@ -223,7 +223,7 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/aboy_.png',
       '/images/websites/vote/sampleperson3.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
@@ -244,7 +244,7 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/aboy_.png',
       '/images/websites/vote/sampleperson3.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',

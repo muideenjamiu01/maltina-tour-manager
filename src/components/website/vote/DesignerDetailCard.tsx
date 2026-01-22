@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -44,6 +44,15 @@ export default function DesignerDetailCard({
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === safeImages.length - 1 ? 0 : prev + 1));
   };
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentIndex((prev) =>
+      prev === safeImages.length - 1 ? 0 : prev + 1
+    );
+  }, 3000); // change every 3 seconds
+
+  return () => clearInterval(interval);
+}, [safeImages.length]);
 
 
   return (
