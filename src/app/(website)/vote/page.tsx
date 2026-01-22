@@ -9,7 +9,7 @@ export default function VotePage() {
   return (
     <div className="relative min-h-screen">
       <VoteHero />
-      <HowToVote/>
+      <HowToVote/> 
     </div>
   );
 }
