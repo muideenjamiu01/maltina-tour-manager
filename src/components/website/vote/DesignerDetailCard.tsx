@@ -128,7 +128,7 @@ useEffect(() => {
         {/* RIGHT CONTENT */}
         <div>
            {/* Child image */}
-           <div className="flex items-center gap-4 mb-2">
+           <div className="flex items-center gap-4 ">
 
               {/* Title */}
   <h1 className="text-4xl font-semibold">
@@ -136,7 +136,7 @@ useEffect(() => {
   </h1>
   {/* Child image */}
   {childImageUrl && (
-    <div className="relative h-[120px] w-[120px] rounded-full overflow-hidden">
+    <div className="relative h-[120px] w-[120px] border-2 border-orange-400 rounded-full overflow-hidden">
       <Image
         src={childImageUrl}
         alt="Child Image"
@@ -201,7 +201,7 @@ useEffect(() => {
           </div>
 
           {/* DESCRIPTION */}
-          <div className="mb-1 max-w-2xl">
+          <div className="mb-3 max-w-2xl">
             <h3 className="font-semibold">Design Description</h3>
             <p className="text-sm text-black leading-relaxed">
               {description || 'No description provided.'}
@@ -210,13 +210,11 @@ useEffect(() => {
 
           {/* VOTING SECTION */}
           <div className="flex flex-col items-start gap-3">
-            <p className="text-md font-semibold">Current Votes:</p>
-            <p className="text-2xl font-bold text-orange-500">
+             {/* <p className="text-md font-semibold">Current Votes:</p>
+            <p className=" font-bold text-orange-500">
               {votes}{" "}
-              <span className="text-sm text-gray-600 font-normal ml-2">
-                votes
-              </span>
-            </p>
+             
+            </p> */}
 
               <button
                onClick={() => setShowVoteModal(true)}
