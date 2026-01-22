@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView, useMotionValue, useTransform, animate, type Variants } from "framer-motion";
 import { useEffect, useRef } from "react";
-import Lenis from "@studio-freight/lenis";
 import CountdownTimer from '@/components/website/vote/countdown-timer';
 
 const steps = [
@@ -60,24 +59,9 @@ const stepVariant: Variants = {
 };
 
 export default function HowToVote() {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      wheelMultiplier: 1,
-    });
+ 
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      // Cleanup Lenis
-      lenis.destroy();
-    };
-  }, []);
+ 
 
   return (
     <section className="relative w-full min-h-[40vh] overflow-hidden bg-[#f6a623]">
@@ -107,7 +91,7 @@ export default function HowToVote() {
           <h2 className=" font-lilita  text-center text-2xl sm:text-3xl text-white mb-6 drop-shadow-md">
             Voting Ends In
           </h2>
-          <CountdownTimer />
+          <CountdownTimer /> 
         </div>
       </section>
 
@@ -118,7 +102,8 @@ export default function HowToVote() {
           initial="hidden"
           whileInView="visible"
           variants={fadeInUp}
-          viewport={{ once: false }}
+          viewport={{ once: true,  }}
+
         >
           How Voting Works
         </motion.h1>
