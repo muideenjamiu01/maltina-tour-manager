@@ -1,50 +1,53 @@
+"use client";
+import { useRouter } from "next/navigation";
 const winners = [
   {
     name: "Aisha K.",
     age: "Age 12 | Lagos",
     zone: "South West",
     school: "Government Primary School",
-    image: "/assets/aboy_.png",
+    image: "/images/websites/vote/aboy_.png",
   },
   {
     name: "Chidi O.",
     age: "Age 10 | Enugu",
     zone: "South East",
     school: "Community Secondary School",
-    image: "/assets/aboy_.png",
+    image: "/images/websites/vote/aboy_.png",
   },
   {
     name: "Emeka N.",
     age: "Age 11 | Kano",
     zone: "North West",
     school: "Unity Primary School",
-     image: "/assets/aboy_.png",
+     image: "/images/websites/vote/aboy_.png",
   },
   {
     name: "Bola A.",
     age: "Age 9 | Ibadan",
     zone: "South West",
     school: "St. Mary’s Secondary",
-    image: "/assets/aboy_.png",
+    image: "/images/websites/vote/aboy_.png",
   },
   {
     name: "Mariam O.",
     age: "Age 8 | Akure",
     zone: "South West",
     school: "Hope Academy",
-    image: "/assets/aboy_.png",
+    image: "/images/websites/vote/aboy_.png",
   },
   {
     name: "Umar K.",
     age: "Age 11 | Sokoto",
     zone: "North West",
     school: "Federal Government College",
-    image: "/assets/aboy_.png",
+    image: "/images/websites/vote/aboy_.png",
   },
 ];
 
 
 export default function MeetTheWinners() {
+   const router = useRouter();
   return (
     <main className=" py-20 px-6 text-center">
       {/* HERO */}
@@ -109,7 +112,9 @@ export default function MeetTheWinners() {
     Download winners pack (PDF)
   </button>
 
-  <button className="bg-gray-200 border-2 border-gray-200 text-black w-[70%] sm:w-auto px-9 py-6 rounded-md hover:bg-white hover:text-black transition">
+  <button 
+  onClick={() => router.push("/vote")}
+  className="bg-gray-200 border-2 border-gray-200 text-black w-[70%] sm:w-auto px-9 py-6 rounded-md hover:bg-white hover:text-black transition">
     View all finalists again
   </button>
 </section>

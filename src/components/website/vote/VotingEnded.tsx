@@ -1,6 +1,8 @@
 import { Check } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function VotingEnded() {
+  const router = useRouter();
   return (
     <main className="min-h-screen flex justify-center px-2 py-16">
    <section className="w-full max-w-6xl text-white"> 
@@ -61,7 +63,7 @@ export default function VotingEnded() {
   {/* Total Votes */}
   <div className="relative w-40 sm:w-auto aspect-[1/1] md:w-48 md:h-48 lg:w-52 lg:h-52">
     <img
-      src="/assets/stepsbg.png"
+      src="/images/websites/vote/Stepsbg.png"
       alt="Total Votes"
       className="w-full h-full object-cover rounded"
     />
@@ -78,7 +80,7 @@ export default function VotingEnded() {
   {/* Finalists */}
   <div className="relative w-40 sm:w-auto aspect-[1/1] md:w-48 md:h-48 lg:w-52 lg:h-52">
     <img
-      src="/assets/stepsbg.png"
+      src="/images/websites/vote/Stepsbg.png"
       alt="Finalists"
       className="w-full h-full object-cover rounded"
     />
@@ -95,7 +97,7 @@ export default function VotingEnded() {
   {/* Designs */}
   <div className="relative w-40 sm:w-auto aspect-[1/1] md:w-48 md:h-48 lg:w-52 lg:h-52">
     <img
-      src="/assets/stepsbg.png"
+      src="/images/websites/vote/Stepsbg.png"
       alt="Designs"
       className="w-full h-full object-cover rounded"
     />
@@ -151,7 +153,9 @@ export default function VotingEnded() {
 
 
 <div className="flex justify-center mt-10">
-  <button className="bg-gray-200 border border-white text-black font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-lg hover:bg-white/10 transition sm:w-auto text-center">
+  <button 
+   onClick={() => router.push("/vote")}
+  className="bg-gray-200 border border-white text-black font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-lg hover:bg-white/10 transition sm:w-auto text-center">
     Back to Home
   </button>
 </div>
