@@ -18,7 +18,7 @@ export default function VoteForFavorite() {
   const [error, setError] = useState<string | null>(null);
 
   const [filters, setFilters] = useState<Filters>({
-    category: "All",
+    query: "",
     zone: "All",
     sort: "latest",
     time: "all",
@@ -45,52 +45,62 @@ export default function VoteForFavorite() {
   const filteredDesigns = useMemo(() => {
     let result = designs;
 
-    if (filters.category !== "All") {
-      result = result.filter((d) => d.category === filters.category);
-    }
-
+    // Zone filter
     if (filters.zone !== "All") {
       result = result.filter((d) => d.zone === filters.zone);
+    }
+
+    // Search filter (by anything)
+    if (filters.query.trim() !== "") {
+      const q = filters.query.toLowerCase().trim();
+
+      result = result.filter((d) => {
+        return (
+          (d.name ?? "").toLowerCase().includes(q) ||
+          (d.school ?? "").toLowerCase().includes(q) ||
+          (d.location ?? "").toLowerCase().includes(q) ||
+          (d.zone ?? "").toLowerCase().includes(q) ||
+          (d.category ?? "").toLowerCase().includes(q)
+        );
+      });
     }
 
     return result;
   }, [filters, designs]);
 
   return (
-     <div className="relative min-h-screen pt-20 w-full overflow-hidden">
+    <div className="relative min-h-screen pt-20 w-full overflow-hidden">
 
-    {/* Background Image */}
-    <Image
-      src="/images/websites/vote/background.png"
-      alt="Background"
-      fill
-      priority
-      className="object-cover "
-    />
+      {/* Background Image */}
+      <Image
+        src="/images/websites/vote/background.png"
+        alt="Background"
+        fill
+        priority
+        className="object-cover "
+      />
 
- 
+      {/* Page Content */}
+      <div className="relative z-10 space-y-2">
+        <VoteHero />
+        <VoteStats />
+        <VotingRules />
+        <VoteFilters filters={filters} setFilters={setFilters} />
 
-    {/* Page Content */}
-    <div className="relative z-10 space-y-2">
-      <VoteHero />
-      <VoteStats />
-      <VotingRules />
-      <VoteFilters filters={filters} setFilters={setFilters} />
+        {error && (
+          <div className="py-10 text-center text-red-500">
+            {error}
+          </div>
+        )}
 
-      {error && (
-        <div className="py-10 text-center text-red-500">
-          {error}
-        </div>
-      )}
-
-      {loading ? (
-        <div className="flex items-center justify-center py-20">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-        </div>
-      ) : (
-        <VoteGrid designs={filteredDesigns} />
-      )}
+        {loading ? (
+          <div className="flex items-center justify-center py-20">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+          </div>
+        ) : (
+          <VoteGrid designs={filteredDesigns} />
+        )}
+      </div>
     </div>
-  </div>
-)
+  );
 }

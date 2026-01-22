@@ -9,7 +9,9 @@ type VoteGridProps = {
 };
 
 export default function VoteGrid({ designs }: VoteGridProps) {
-   const [showVoteModal, setShowVoteModal] = useState(false);
+  const [showVoteModal, setShowVoteModal] = useState(false);
+  const [selectedDesign, setSelectedDesign] = useState<Design | null>(null);
+
   if (!designs || designs.length === 0) {
     return (
       <section className="py-16">
@@ -19,6 +21,16 @@ export default function VoteGrid({ designs }: VoteGridProps) {
       </section>
     );
   }
+
+  const handleVoteClick = (design: Design) => {
+    setSelectedDesign(design);
+    setShowVoteModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowVoteModal(false);
+    setSelectedDesign(null);
+  };
 
   return (
     <section className="py- sm:py-12">
@@ -74,7 +86,7 @@ export default function VoteGrid({ designs }: VoteGridProps) {
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    setShowVoteModal(true);
+                    handleVoteClick(design);
                   }}
                   className="border border-orange-400 text-orange-500 px-3 py-1.5 rounded-md text-sm font-medium transition hover:bg-orange-400 hover:text-white"
                 >
@@ -84,10 +96,15 @@ export default function VoteGrid({ designs }: VoteGridProps) {
             </div>
           </Link>
         ))}
-         {/* Vote Modal */}
-              {showVoteModal && (
-                <VoteModal onClose={() => setShowVoteModal(false)} />
-              )}
+
+        {/* Vote Modal */}
+        {showVoteModal && selectedDesign && (
+          <VoteModal
+            designId={selectedDesign.id}
+            designName={selectedDesign.name}
+            onClose={handleCloseModal}
+          />
+        )}
       </div>
     </section>
   );

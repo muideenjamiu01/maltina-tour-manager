@@ -18,7 +18,7 @@ export type Design = {
 };
 
 export type Filters = {
-  category: string;
+   query: string;
   zone: string;
   sort: string;
   time: string;

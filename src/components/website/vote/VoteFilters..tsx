@@ -1,14 +1,10 @@
-// Define the proper shape of your filters
-type Filters = {
-  category: string;
-  zone: string;
-  sort: string;
-  time: string;
-};
+"use client";
+
+import { Filters } from "@/types/vote.types";
 
 type VoteFiltersProps = {
-  filters: Filters; // filters is now an object, not an array
-  setFilters: (filters: Filters) => void; // function to update the filters object
+  filters: Filters;
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
 };
 
 export default function VoteFilters({ filters, setFilters }: VoteFiltersProps) {
@@ -21,31 +17,34 @@ export default function VoteFilters({ filters, setFilters }: VoteFiltersProps) {
           <span className="block text-sm font-medium mb-2">Filter by</span>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <select
-              className="p-3 rounded-md border bg-gray-100 w-full"
-              value={filters.category}
-              onChange={e => setFilters({ ...filters, category: e.target.value })}
-            >
-              <option value="All">All Categories</option>
-              <option value="Primary">Primary</option>
-              <option value="Secondary">Secondary</option>
-            </select>
 
+            {/* SEARCH FIELD */}
+            <input
+              type="text"
+              placeholder="Search by name, school, location, zone, category..."
+              className="p-3 rounded-md border bg-gray-100 w-full"
+              value={filters.query}
+              onChange={(e) =>
+                setFilters((prev) => ({ ...prev, query: e.target.value }))
+              }
+            />
+
+            {/* ZONE SELECT */}
             <select
               className="p-3 rounded-md border bg-gray-100 w-full"
               value={filters.zone}
-              onChange={e => setFilters({ ...filters, zone: e.target.value })}
+              onChange={(e) =>
+                setFilters((prev) => ({ ...prev, zone: e.target.value }))
+              }
             >
               <option value="All">All Zones</option>
               <option value="North">North</option>
               <option value="South">South</option>
-               <option value="West">West</option>
+              <option value="West">West</option>
               <option value="East">East</option>
             </select>
           </div>
         </div>
-
-       
 
       </div>
     </section>

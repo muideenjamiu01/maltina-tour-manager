@@ -1,14 +1,54 @@
+"use client";
+
 import Image from "next/image";
 import { Check } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { Design } from "@/types/vote.types";
+import voteDesigns from "@/data/vote-mock-data";
 
-export default function VoteRecordedSection() {
+
+interface VoteRecordedSectionProps {
+  design?: Design;
+  voteId?: string;
+}
+
+export default function VoteRecordedSection({
+  design,
+  voteId,
+}: VoteRecordedSectionProps) {
+  const searchParams = useSearchParams();
+  const designId = searchParams.get("designId");
+
+  // 🔑 Resolve design safely (URL → mock data → prop)
+  const resolvedDesign =
+    design ??
+    voteDesigns.find(
+      (item) => String(item.id) === String(designId)
+    );
+
+  const designerName = resolvedDesign?.name ?? "Unknown Designer";
+  const designImage =
+    resolvedDesign?.image ?? "/images/websites/vote/sampleperson.png";
+  const school = resolvedDesign?.school ?? "—";
+  const location = resolvedDesign?.location ?? "—";
+  const zone = resolvedDesign?.zone ?? "—";
+  const dateSubmitted =
+    resolvedDesign?.date ?? new Date().toLocaleDateString("en-GB");
+  const currentTime = new Date().toLocaleTimeString("en-GB");
+
+   const router = useRouter();
+
   return (
     <section className="px-4 py-16">
       <div className="max-w-6xl mx-auto text-white">
         {/* Status Icon */}
         <div className="flex justify-center mb-3">
           <div className="w-30 h-30 md:w-30 md:h-30 rounded-full bg-orange-500 flex items-center justify-center">
-            <Check className="w-16 h-16 md:w-20 md:h-20 text-white" strokeWidth={3} />
+            <Check
+              className="w-16 h-16 md:w-20 md:h-20 text-white"
+              strokeWidth={3}
+            />
           </div>
         </div>
 
@@ -17,7 +57,7 @@ export default function VoteRecordedSection() {
           Vote Recorded
         </h1>
         <p className="text-center text-black text-xl md:text-2xl mb-12">
-          Your vote has been successfully recorded at 10:03:13
+          Your vote has been successfully recorded at {currentTime}
         </p>
 
         {/* You voted for */}
@@ -31,48 +71,48 @@ export default function VoteRecordedSection() {
           <div className="w-full">
             <div className="relative h-64 sm:h-75 w-full md:w-[89%]">
               <Image
-                src="/assets/sampleperson.png"
-                alt="Design submission"
+                src={designImage}
+                alt={`${designerName}'s design submission`}
                 fill
-                className="object-cover"
+                className="object-cover rounded-lg shadow-lg"
               />
             </div>
           </div>
 
           {/* Details */}
           <div>
-          <h3 className="text-3xl sm:text-5xl font-bold text-black text-center sm:text-left">
-  Design by Blessing N.
-</h3>
+            <h3 className="text-3xl sm:text-5xl font-bold text-black text-center sm:text-left">
+              {designerName}
+            </h3>
 
-<p className="mt-1 text-xl sm:text-2xl font-semibold text-black text-center sm:text-left">
-  Student Information
-</p>
+            <p className="mt-1 text-xl sm:text-2xl font-semibold text-black text-center sm:text-left">
+              Student Information
+            </p>
 
             <div className="mt-4 space-y-2 text-md">
               <div className="flex justify-between border-b border-orange-500 pb-2">
                 <span className="font-medium text-black">Name</span>
-                <span className="text-black">Blessing N.</span>
+                <span className="text-black">{designerName}</span>
               </div>
 
               <div className="flex justify-between border-b border-orange-500 pb-2">
                 <span className="font-medium text-black">School</span>
-                <span className="text-black">Royal Academy</span>
+                <span className="text-black">{school}</span>
               </div>
 
               <div className="flex justify-between border-b border-orange-500 pb-2">
                 <span className="font-medium text-black">Location</span>
-                <span className="text-black">Ikeja, Lagos State</span>
+                <span className="text-black">{location}</span>
               </div>
 
               <div className="flex justify-between border-b border-orange-500 pb-2">
                 <span className="font-medium text-black">Zone</span>
-                <span className="text-black">Zone 3</span>
+                <span className="text-black">{zone}</span>
               </div>
 
               <div className="flex justify-between">
                 <span className="font-medium text-black">Submitted</span>
-                <span className="text-gray-800">January 10, 2026</span>
+                <span className="text-gray-800">{dateSubmitted}</span>
               </div>
             </div>
           </div>
@@ -80,7 +120,9 @@ export default function VoteRecordedSection() {
 
         {/* What happens next */}
         <div className="mb-10">
-          <h4 className="text-2xl font-bold mb-3 text-black">What Happens Next</h4>
+          <h4 className="text-2xl font-bold mb-3 text-black">
+            What Happens Next
+          </h4>
           <div className="text-md text-black leading-loose opacity-95 space-y-4">
             <p className="text-lg sm:text-xl">
               <strong>Your Vote Counts:</strong> Your vote has been securely
@@ -89,7 +131,8 @@ export default function VoteRecordedSection() {
             </p>
             <p className="text-lg sm:text-xl">
               <strong>One Vote Per Person:</strong> Each mobile number can vote
-              only once for the entire voting period. Your vote has been locked in.
+              only once for the entire voting period. Your vote has been locked
+              in.
             </p>
             <p className="text-lg sm:text-xl">
               <strong>Vote Verification:</strong> Your vote was verified using
@@ -105,31 +148,32 @@ export default function VoteRecordedSection() {
 
         {/* Share section */}
         <div className="mb-10">
-          <h4 className="text-xl text-black font-bold mb-2">Share This Design</h4>
+          <h4 className="text-xl text-black font-bold mb-2">
+            Share This Design
+          </h4>
           <p className="text-lg sm:text-xl opacity-95 text-black mb-4">
             Help this design win by sharing it with your friends and family!
           </p>
 
-          {/* Top buttons */}
-          {/* Top Buttons - Centered and auto-width on mobile */}
-<div className="flex flex-col sm:flex-row gap-4 mb-6 items-center sm:items-start ">
-  <button className="bg-white text-black font-semibold px-4 py-2 rounded-lg shadow hover:bg-orange-50 transition w-auto">
-    Copy Share Link
-  </button>
-  <button className="bg-white text-black font-semibold px-4 py-2 rounded-lg shadow hover:bg-orange-50 transition w-auto">
-    Share on Social Media
-  </button>
-</div>
+          <div className="flex flex-col sm:flex-row gap-4 mb-6 items-center sm:items-start">
+            <button className="bg-white text-black font-semibold px-4 py-2 rounded-lg shadow hover:bg-orange-50 transition w-auto">
+              Copy Share Link
+            </button>
+            <button className="bg-white text-black font-semibold px-4 py-2 rounded-lg shadow hover:bg-orange-50 transition w-auto">
+              Share on Social Media
+            </button>
+          </div>
 
-{/* Bottom Buttons - Centered and auto-width on mobile */}
-<div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start ">
-  <button className="bg-gray-100 text-black font-semibold px-4 py-2 rounded-lg shadow hover:bg-orange-50 transition w-auto">
-    Browse More Designs
-  </button>
-  <button className="bg-gray-100 text-black font-semibold px-4 py-2 rounded-lg shadow hover:bg-orange-50 transition w-auto">
-    Return to Homepage
-  </button>
-</div>
+          <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
+            <button className="bg-gray-100 text-black font-semibold px-4 py-2 rounded-lg shadow hover:bg-orange-50 transition w-auto">
+              Browse More Designs
+            </button>
+            <button 
+             onClick={() => router.push("/vote")}
+            className="bg-gray-100 text-black font-semibold px-4 py-2 rounded-lg shadow hover:bg-orange-50 transition w-auto">
+              Return to Homepage
+            </button>
+          </div>
         </div>
       </div>
     </section>
