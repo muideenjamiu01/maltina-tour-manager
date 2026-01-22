@@ -3,7 +3,7 @@ import { Design } from '@/types/vote.types'
 export const voteDesigns: Design[] = [
   {
     id: 1,
-    name: 'Aisha K',
+    name: 'Aisha Kemisola',
     category: 'Primary',
     zone: 'West',
     votes: 120,
@@ -11,8 +11,8 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
-      '/images/websites/vote/sampleperson3.png'
+      '/images/websites/vote/aboy_.png',
+      '/images/websites/vote/aboy_.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
     school: 'Government Primary School Ikeja',
@@ -25,7 +25,7 @@ export const voteDesigns: Design[] = [
   },
   {
     id: 2,
-    name: 'Blessing N',
+    name: 'Blessing Nickolas',
     category: 'Secondary',
     zone: 'East',
     votes: 80,
@@ -33,8 +33,8 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
-      '/images/websites/vote/sampleperson3.png'
+      '/images/websites/vote/aboy_.png.png',
+      '/images/websites/vote/aboy_.png.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
     school: 'St. Mary Secondary',
@@ -47,7 +47,7 @@ export const voteDesigns: Design[] = [
   },
   {
     id: 3,
-    name: 'Daniel O',
+    name: 'Daniel Onyema',
     category: 'Primary',
     zone: 'North',
     votes: 80,
@@ -55,7 +55,7 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/aboy_.png.png',
       '/images/websites/vote/sampleperson3.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
@@ -68,7 +68,7 @@ export const voteDesigns: Design[] = [
   },
   {
     id: 4,
-    name: 'Chinelo A',
+    name: 'Chinelo Abere',
     category: 'Secondary',
     zone: 'South',
     votes: 80,
@@ -76,7 +76,7 @@ export const voteDesigns: Design[] = [
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/aboy_.png.png',
       '/images/websites/vote/sampleperson3.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
@@ -89,15 +89,57 @@ export const voteDesigns: Design[] = [
   },
   {
     id: 5,
-    name: 'Mercy U',
+    name: 'Mercy Uche',
     category: 'Secondary',
-    zone: 'East',
+    zone: 'South',
     votes: 80,
     date: '2024-01-20',
     image: '/images/websites/vote/sampleperson.png',
     images: [
       '/images/websites/vote/sampleperson.png',
-      '/images/websites/vote/sampleperson2.png',
+      '/images/websites/vote/aboy_.png.png',
+      '/images/websites/vote/aboy_.png.png'
+    ],
+    childImageUrl: '/images/websites/vote/aboy_.png',
+    school: 'Community Secondary School',
+    grade: 'SS 1',
+    age: 13,
+    story: 'Bright motifs that celebrate school life and friendships.',
+    location: 'Enugu',
+	summary: 'Clean, minimalist approach with excellent spacing and hierarchy. Focuses on readability and user experience.',
+  },
+  {
+    id: 5,
+    name: 'Michael Obi',
+    category: 'Secondary',
+    zone: 'South',
+    votes: 80,
+    date: '2024-01-20',
+    image: '/images/websites/vote/sampleperson.png',
+    images: [
+      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/aboy_.png.png',
+      '/images/websites/vote/sampleperson.png'
+    ],
+    childImageUrl: '/images/websites/vote/aboy_.png',
+    school: 'Community Secondary School',
+    grade: 'SS 1',
+    age: 13,
+    story: 'Bright motifs that celebrate school life and friendships.',
+    location: 'Enugu',
+	summary: 'Clean, minimalist approach with excellent spacing and hierarchy. Focuses on readability and user experience.',
+  },
+  {
+    id: 7,
+    name: 'Eze Atere',
+    category: 'Secondary',
+    zone: 'North',
+    votes: 80,
+    date: '2024-01-20',
+    image: '/images/websites/vote/sampleperson.png',
+    images: [
+      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/aboy_.png.png',
       '/images/websites/vote/sampleperson3.png'
     ],
     childImageUrl: '/images/websites/vote/aboy_.png',
@@ -108,6 +150,113 @@ export const voteDesigns: Design[] = [
     location: 'Enugu',
 	summary: 'Clean, minimalist approach with excellent spacing and hierarchy. Focuses on readability and user experience.',
   },
+  {
+    id: 8,
+    name: 'Mercy Idoma',
+    category: 'Secondary',
+    zone: 'North',
+    votes: 80,
+    date: '2024-01-20',
+    image: '/images/websites/vote/sampleperson.png',
+    images: [
+      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/aboy_.png',
+      '/images/websites/vote/sampleperson3.png'
+    ],
+    childImageUrl: '/images/websites/vote/aboy_.png',
+    school: 'Community Secondary School',
+    grade: 'SS 1',
+    age: 13,
+    story: 'Bright motifs that celebrate school life and friendships.',
+    location: 'Enugu',
+	summary: 'Clean, minimalist approach with excellent spacing and hierarchy. Focuses on readability and user experience.',
+  },
+  {
+    id: 9,
+    name: 'Mercy Uche',
+    category: 'Secondary',
+    zone: 'North',
+    votes: 80,
+    date: '2024-01-20',
+    image: '/images/websites/vote/sampleperson.png',
+    images: [
+      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/aboy_.png',
+      '/images/websites/vote/aboy_.png'
+    ],
+    childImageUrl: '/images/websites/vote/aboy_.png',
+    school: 'Community Secondary School',
+    grade: 'SS 1',
+    age: 13,
+    story: 'Bright motifs that celebrate school life and friendships.',
+    location: 'Enugu',
+	summary: 'Clean, minimalist approach with excellent spacing and hierarchy. Focuses on readability and user experience.',
+  },
+  {
+    id: 10,
+    name: 'Lila Okoro',
+    category: 'Secondary',
+    zone: 'South',
+    votes: 80,
+    date: '2024-01-20',
+    image: '/images/websites/vote/sampleperson.png',
+    images: [
+      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/aboy_.png',
+      '/images/websites/vote/sampleperson3.png'
+    ],
+    childImageUrl: '/images/websites/vote/aboy_.png',
+    school: 'Community Secondary School',
+    grade: 'SS 1',
+    age: 13,
+    story: 'Bright motifs that celebrate school life and friendships.',
+    location: 'Enugu',
+	summary: 'Clean, minimalist approach with excellent spacing and hierarchy. Focuses on readability and user experience.',
+  },
+  {
+    id: 11,
+    name: 'Ahmed Salisu',
+    category: 'Secondary',
+    zone: 'East',
+    votes: 80,
+    date: '2024-01-20',
+    image: '/images/websites/vote/sampleperson.png',
+    images: [
+      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/aboy_.png',
+      '/images/websites/vote/sampleperson3.png'
+    ],
+    childImageUrl: '/images/websites/vote/aboy_.png',
+    school: 'Community Secondary School',
+    grade: 'SS 1',
+    age: 13,
+    story: 'Bright motifs that celebrate school life and friendships.',
+    location: 'Enugu',
+	summary: 'Clean, minimalist approach with excellent spacing and hierarchy. Focuses on readability and user experience.',
+  },
+  {
+    id: 12,
+    name: 'Damilare Ojo',
+    category: 'Secondary',
+    zone: 'East',
+    votes: 80,
+    date: '2024-01-20',
+    image: '/images/websites/vote/sampleperson.png',
+    images: [
+      '/images/websites/vote/sampleperson.png',
+      '/images/websites/vote/aboy_.png',
+      '/images/websites/vote/sampleperson3.png'
+    ],
+    childImageUrl: '/images/websites/vote/aboy_.png',
+    school: 'Community Secondary School',
+    grade: 'SS 1',
+    age: 13,
+    story: 'Bright motifs that celebrate school life and friendships.',
+    location: 'Enugu',
+	summary: 'Clean, minimalist approach with excellent spacing and hierarchy. Focuses on readability and user experience.',
+  },
+  
+ 
 ]
 
 export default voteDesigns

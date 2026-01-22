@@ -1,4 +1,8 @@
+"use client";
+import { useRouter } from "next/navigation";
+
 export default function AlreadyVotedSection() {
+   const router = useRouter();
   return (
     <section className="relative px-6 py-24 text-center overflow-hidden">
       <div className="absolute inset-0 bg-[url('/images/bg-pattern.svg')] opacity-10 pointer-events-none" />
@@ -23,7 +27,9 @@ export default function AlreadyVotedSection() {
         </p>
 
         {/* Button */}
-        <button className="bg-white text-gray-800 font-medium px-10 py-4 rounded-xl shadow-md hover:bg-gray-100 transition">
+        <button 
+        onClick={() => router.push("/vote/finalist")}
+        className="bg-white text-gray-800 font-medium px-10 py-4 rounded-xl shadow-md hover:bg-gray-100 transition">
           View all finalists
         </button>
       </div>

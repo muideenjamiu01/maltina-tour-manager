@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -44,6 +44,15 @@ export default function DesignerDetailCard({
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === safeImages.length - 1 ? 0 : prev + 1));
   };
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentIndex((prev) =>
+      prev === safeImages.length - 1 ? 0 : prev + 1
+    );
+  }, 3000); // change every 3 seconds
+
+  return () => clearInterval(interval);
+}, [safeImages.length]);
 
 
   return (
@@ -58,7 +67,7 @@ export default function DesignerDetailCard({
       </Link>
        <button
                onClick={() => setShowVoteModal(true)}
-              className="bg-gray-200 transition text-black py-3 px-2  ml-2 rounded-md hover:bg-gray-300">
+              className="bg-orange-400 transition text-white py-3 px-6 ml-2 rounded-md hover:bg-orange-500 font-semibold">
                 Vote Now
               </button>
 
@@ -107,8 +116,11 @@ export default function DesignerDetailCard({
 
           {/* CARD ACTIONS (BOTTOM RIGHT) */}
           <div className="flex justify-end gap-3 px-5 pb-4">
-            <button className="text-sm font-medium border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100">
-              View & vote
+            <button 
+              onClick={() => setShowVoteModal(true)}
+              className="text-sm font-medium border-2 border-orange-400 text-orange-500 px-4 py-2 rounded-md hover:bg-orange-400 hover:text-white transition"
+            >
+              Vote
             </button>
           </div>
         </div>
@@ -116,15 +128,15 @@ export default function DesignerDetailCard({
         {/* RIGHT CONTENT */}
         <div>
            {/* Child image */}
-           <div className="flex items-center gap-4 mb-2">
+           <div className="flex items-center gap-4 ">
 
               {/* Title */}
   <h1 className="text-4xl font-semibold">
-    Design by {name}
+   {name}
   </h1>
   {/* Child image */}
   {childImageUrl && (
-    <div className="relative h-[80px] w-[80px] overflow-hidden">
+    <div className="relative h-[120px] w-[120px] border-2 border-orange-400 rounded-full overflow-hidden">
       <Image
         src={childImageUrl}
         alt="Child Image"
@@ -189,7 +201,7 @@ export default function DesignerDetailCard({
           </div>
 
           {/* DESCRIPTION */}
-          <div className="mb-1 max-w-2xl">
+          <div className="mb-3 max-w-2xl">
             <h3 className="font-semibold">Design Description</h3>
             <p className="text-sm text-black leading-relaxed">
               {description || 'No description provided.'}
@@ -197,19 +209,16 @@ export default function DesignerDetailCard({
           </div>
 
           {/* VOTING SECTION */}
-          <div className="flex flex-col items-start gap-1">
-            <p className="text-md">Current Votes:</p>
-            <p className="text-md">
+          <div className="flex flex-col items-start gap-3">
+             {/* <p className="text-md font-semibold">Current Votes:</p>
+            <p className=" font-bold text-orange-500">
               {votes}{" "}
-              <span className="text-black italic ml-30">
-                You haven’t voted yet
-              </span>
-            </p>
+             
+            </p> */}
 
-           {/* <Link href={id ? `/vote/voteConfirm?id=${id}` : '/vote/voteConfirm'} passHref> /*/}
               <button
                onClick={() => setShowVoteModal(true)}
-              className="bg-gray-200 transition text-black px-8 py-3 rounded-md hover:bg-gray-300">
+              className="bg-gray-200 transition text-black px-3 py-3 rounded-md hover:bg-orange-500 font-semibold ">
                 Vote for this Design
               </button>
         
@@ -218,8 +227,12 @@ export default function DesignerDetailCard({
       </div>
 
       {/* Vote Modal */}
-      {showVoteModal && (
-        <VoteModal onClose={() => setShowVoteModal(false)} />
+      {showVoteModal && id && (
+        <VoteModal 
+          designId={id} 
+          designName={name}
+          onClose={() => setShowVoteModal(false)} 
+        />
       )}
     </div>
   );
