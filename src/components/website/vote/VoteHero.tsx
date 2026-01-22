@@ -42,8 +42,9 @@ export default function VoteHero() {
   };
   // Big cloud: very slow left → right drift
 const cloudVariants: Variants = {
+  initial: { x: "-10%" },
   animate: {
-    x: ["0%", "-30%"], // move left only, stays inside view
+    x: ["-10%", "-25%"],
     transition: {
       duration: 80,
       ease: "linear",
@@ -52,6 +53,7 @@ const cloudVariants: Variants = {
     },
   },
 };
+
 const walkAndFloat: Variants = {
   hidden: {
     opacity: 0,
@@ -172,26 +174,27 @@ const walkIn: Variants = {
   className="
     absolute
     bottom-[22%]
-    right-[-15%]       /* stays right */
-    w-[160%]
-    h-[500px]
-    sm:h-[360px]
-    md:h-[420px]
+    right-0
+
+    w-[120%]
+    h-[420px]
     z-[2]
     pointer-events-none
     opacity-90
   "
-  style={{ scale: 1.2 }}
   variants={cloudVariants}
+  initial="initial"
   animate="animate"
 >
   <Image
     src="/images/websites/vote/cloud.png"
     alt="Big moving cloud"
     fill
+    priority
     className="object-contain"
   />
 </motion.div>
+
 
 
 
@@ -200,23 +203,22 @@ const walkIn: Variants = {
   className="
     absolute
     bottom-[22%]
-    right-[-15%]       /* stays right */
-    w-[160%]
-    h-[500px]
-    sm:h-[360px]
-    md:h-[420px]
+    right-0
+    w-[120%]
+    h-[420px]
     z-[2]
     pointer-events-none
     opacity-90
   "
-  style={{ scale: 1.2 }}
   variants={cloudVariants}
+  initial="initial"
   animate="animate"
 >
   <Image
     src="/images/websites/vote/cloud.png"
     alt="Big moving cloud"
     fill
+    priority
     className="object-contain"
   />
 </motion.div>
