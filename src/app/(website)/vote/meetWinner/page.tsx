@@ -1,10 +1,12 @@
+"use client";
+
 import Navbar from "@/components/website/layout/navbar"
 import Footer from "@/components/website/layout/footer"
 import MeetWinner from "@/components/website/vote/MeetWinner"
 import Image from "next/image"
 
 
-export default function MeettheWinners() {
+export default function MeetWinners() {
   return (
      <div className="relative min-h-screen pt-20">
              
