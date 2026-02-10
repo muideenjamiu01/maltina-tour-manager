@@ -115,7 +115,7 @@ export default function Step2FindSchool({ formData, updateFormData, onNext, onBa
     >
       <div className="breakpoint">
         {/* Progress Bar */}
-        <div className="text-center space-y-2 mb-6">
+        <div className="text-center md:w-1/2 mx-auto space-y-2 mb-6">
           <div className="flex justify-between text-sm md:text-base text-gray-900 font-semibold">
             <span>Step 2 of 5</span>
             <span>40% Complete</span>
@@ -206,7 +206,7 @@ export default function Step2FindSchool({ formData, updateFormData, onNext, onBa
                         : 'bg-white text-gray-900 border-gray-300'
                         }`}
                     >
-                      {selectedSchoolId === school.id ? 'Selected' : 'Select'}
+                      {selectedSchoolId === school.id ? 'Nominated' : 'Nominate'}
                     </Button>
                   </div>
                 ))
@@ -219,17 +219,19 @@ export default function Step2FindSchool({ formData, updateFormData, onNext, onBa
           )}
 
           {/* Manual Entry Option */}
-          <div className="text-center">
-            <p className="text-gray-900 font-medium mb-3">Can't find the school in this list?</p>
-            <Button
-              type="button"
-              onClick={handleManualEntry}
-              variant="outline"
-              className="bg-white text-gray-900 hover:bg-gray-100 font-semibold text-base px-8 py-6 h-auto rounded-lg border-none shadow-md"
-            >
-              Add school details manually
-            </Button>
-          </div>
+          {
+            !selectedSchoolId && (
+              <div className="text-center">
+                <p className="text-gray-900 font-medium mb-3">Can't find the school in this list?</p>
+                <Button
+                  type="button"
+                  onClick={handleManualEntry}
+                  variant="outline"
+                  className="bg-white text-gray-900 hover:bg-gray-100 font-semibold text-base px-8 py-6 h-auto rounded-lg border-none shadow-md"
+                >
+                  Add school details manually
+                </Button>
+              </div>)}
 
           {/* Navigation Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">

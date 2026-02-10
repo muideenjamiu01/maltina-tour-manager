@@ -1,0 +1,30 @@
+"use client";
+
+import Navbar from "@/components/website/layout/navbar"
+import Footer from "@/components/website/layout/footer"
+import MeetWinner from "@/components/website/vote/MeetWinner"
+import Image from "next/image"
+
+
+export default function MeetWinners() {
+  return (
+     <div className="relative min-h-screen pt-20">
+             
+           
+             <Image
+               src="/images/websites/vote/background.png"
+               alt="Vote background"
+               fill
+               priority
+               className="object-cover"
+             />
+              <div className="relative z-10">
+   
+      <MeetWinner />
+
+     
+     
+    </div>
+    </div>
+  )
+}

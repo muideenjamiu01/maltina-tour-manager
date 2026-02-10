@@ -56,7 +56,7 @@ export default function Step5Review({
                 backgroundImage: "url('/images/websites/nominate/review.png')",
             }}
         >
-            <div className="max-w-3xl mx-auto px-4">
+            <div className="breakpoint mx-auto">
                 {/* Header */}
                 <div className="text-center mb-8">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white font-lilita mb-2">
@@ -65,7 +65,7 @@ export default function Step5Review({
                     <p className="text-lg font-medium text-gray-900">Please review all details before submitting</p>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-6 md:w-2/3 mx-auto">
                     {/* School Details */}
                     <div className="bg-white/90 p-6 rounded-xl shadow-sm">
                         <SectionHeader title="School Details" editStep={formData.manualEntry ? 2.5 : 2} />

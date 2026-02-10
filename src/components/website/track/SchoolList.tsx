@@ -32,7 +32,7 @@ export default function SchoolList({ schools, groupByRegion = true }: SchoolList
     <div className="space-y-8">
       {Object.entries(groupedSchools).map(([region, regionSchools]) => (
         <div key={region} className="space-y-4">
-          <h3 className="text-2xl font-bold text-gray-900">{region}</h3>
+          <h3 className="text-2xl text-[#292526]">{region}</h3>
           <div className="space-y-3">
             {regionSchools.map((school) => (
               <SchoolCard key={school.id} school={school} />
@@ -46,10 +46,10 @@ export default function SchoolList({ schools, groupByRegion = true }: SchoolList
 
 function SchoolCard({ school }: { school: School }) {
   return (
-    <div className="bg-gray-100 rounded-lg p-4 md:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:bg-gray-200 transition-colors">
+    <div className="bg-gray-100 rounded-lg p-4 md:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:bg-gray-200 transition-colors border border-[#F66F39]">
       <div className="flex-1">
-        <h4 className="text-lg font-bold text-gray-900 mb-1">{school.name}</h4>
-        <p className="text-sm text-gray-600">
+        <h4 className="text-lg font--normal text-[#292526] mb-1">{school.name}</h4>
+        <p className="text-sm text-[#B5B2B3]">
           {school.lga} • {school.state}
         </p>
       </div>
@@ -57,12 +57,12 @@ function SchoolCard({ school }: { school: School }) {
         {school.visited && (
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-[#F66F39]"></div>
-            <span className="text-sm font-medium text-gray-900">Visited</span>
+            <span className="text-sm font-medium text-[#707070]">Visited</span>
           </div>
         )}
         <Link
           href={`/track/${school.id}`}
-          className="text-sm font-semibold text-[#F66F39] hover:text-[#E8673F] underline"
+          className="text-sm font-normal text-[#707070] hover:text-[#E8673F] underline"
         >
           View details
         </Link>

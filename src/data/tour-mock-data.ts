@@ -87,6 +87,11 @@ export const mockSchools: School[] = [
         class: 'SS1',
         quote: 'The experiments were challenging but so interesting. I understand now why breakfast is the most important meal of the day.',
       },
+      {
+        name: 'SS1 Student',
+        class: 'SS1',
+        quote: 'The experiments were challenging but so interesting. I understand now why breakfast is the most important meal of the day.',
+      },
     ],
   },
   {
@@ -118,6 +123,11 @@ export const mockSchools: School[] = [
         name: 'Primary 4 Student',
         class: 'Primary 4',
         quote: 'I loved all the games! Now I know why my mommy wants me to drink milk and eat vegetables.',
+      },
+      {
+        name: 'Primary 6 Student',
+        class: 'Primary 6',
+        quote: 'The science experiments were so cool! I want to teach my little sister what I learned today.',
       },
       {
         name: 'Primary 6 Student',
@@ -156,6 +166,11 @@ export const mockSchools: School[] = [
         name: 'SS3 Student',
         class: 'SS3',
         quote: 'As a science student preparing for WAEC, this tour reinforced many concepts I\'m studying. The practical approach was brilliant!',
+      },
+      {
+        name: 'SS2 Student',
+        class: 'SS2',
+        quote: 'The team challenge was my favorite part. We learned that nutrition is not just about health, but also about mental performance.',
       },
       {
         name: 'SS2 Student',
@@ -258,4 +273,4 @@ export const nigeriaStates = [
   'Enugu', 'Anambra', 'Imo', 'Osun', 'Ekiti', 'Ondo', 'Kwara', 'Niger', 'Plateau',
 ];
 
-export const regions = ['South West', 'North Central', 'North West', 'South South', 'South East', 'North East'];
+export const regions = ['South West', 'North Central', 'North West', 'South South'];

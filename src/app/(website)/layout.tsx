@@ -9,7 +9,7 @@ export default function WebsiteLayout({
   return (
     <>
       <Navbar />
-      <main className="min-h-screen">
+      <main className="min-h-screen bg-[#ff9e16]">
         {children}
       </main>
       <Footer />

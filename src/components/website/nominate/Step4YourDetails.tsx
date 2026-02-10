@@ -65,9 +65,9 @@ export default function Step4YourDetails({
                 backgroundImage: "url('/images/websites/challenge/step-three.png')", // Adjust Bg if needed
             }}
         >
-            <div className="max-w-3xl mx-auto px-4">
+            <div className="breakpoint mx-auto">
                 {/* Progress Bar */}
-                <div className="text-center space-y-2 mb-6">
+                <div className="text-center md:w-1/2 mx-auto space-y-2 mb-6">
                     <div className="flex justify-between text-sm md:text-base text-gray-900 font-semibold">
                         <span>Step 4 of 5</span>
                         <span>80% Complete</span>
@@ -88,7 +88,7 @@ export default function Step4YourDetails({
                     <p className="text-lg font-medium text-gray-900">Step 4: Provide your contact detail</p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6 md:w-2/3 mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <Label htmlFor="yourFirstName" className="text-gray-900 font-semibold text-sm mb-2 block">
